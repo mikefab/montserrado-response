@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 gem 'bower-rails'
 gem 'haml-rails'
+gem 'rails_12factor', group: :production
 gem 'pry'
 gem 'active_model_serializers'
 gem 'responders', '~> 2.0'
