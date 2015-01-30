@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Description:
+  = @zone.description
+%p
+  %b Name:
+  = @zone.name
+%p
+  %b Objectid:
+  = @zone.objectID
+%p
+  %b Epi code:
+  = @zone.epi_code
+%p
+  %b Shape leng:
+  = @zone.shape_leng
+%p
+  %b Shape area:
+  = @zone.shape_area
+%p
+  %b Cnam:
+  = @zone.cnam
+%p
+  %b Geometry:
+  = @zone.geometry
+
+= link_to 'Edit', edit_zone_path(@zone)
+\|
+= link_to 'Back', zones_path

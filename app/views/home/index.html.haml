@@ -1,0 +1,35 @@
+%div{'ng-controller' => 'myCtrl'}
+  .row
+    .col-md-4
+      .row
+        .col-md-12
+          %map{ "disable-default-u-i" => "true", "disable-double-click-zoom" => "true", :draggable => "true", "dragging-cursor" => "move", "map-type-id" => "TERRAIN", :tilt => "45", :zoom => "11"}
+            %fusion-tables-layer{'on-click' => "click(this);", 'suppress-info-windows'=>"true", :query => "{select: 'Geocodable address',  from: '1ttolLwbnJpNcsprPG-98e_ZsakZDRQ5Y7aUeGF5E'}"}
+            / %kml-layer{:url => "zones.kml"}
+        .col-md-12
+          - if is_authorized?
+            = link_to 'Orgs',   orgs_path
+            |      
+            = link_to 'Teams',  teams_path
+            |
+            = link_to 'People', people_path
+            |
+            = link_to 'Tasks',  tasks_path
+            |
+            = link_to 'Zones',  zones_path
+
+    .col-md-8
+      %span{'ng-show' => '!!zone'}
+        Zone: {{zone}}
+      %ul{'ng-repeat' => 'team in teams'}
+        %li
+          .row
+            .col-md-2
+              {{team.name}}
+            .col-md-2
+              {{team.org.nick}}
+            .col-md-2
+              %ul{'ng-repeat' => 'task in team.tasks'}
+                %li 
+                  {{task.name}}
+            .col-md-6

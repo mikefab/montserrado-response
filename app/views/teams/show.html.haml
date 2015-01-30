@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @team.name
+%p
+  %b Org:
+  = @team.org.name
+
+%p
+  %b Zones:
+  - @team.zones.each do |z|
+    = z.epi_code
+
+
+= link_to 'Edit', edit_team_path(@team)
+\|
+= link_to 'Back', teams_path

@@ -1,0 +1,29 @@
+= form_for @team do |f|
+  - if @team.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@team.errors.count, "error")} prohibited this team from being saved:"
+      %ul
+        - @team.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+
+  .field
+    = f.label :org
+    = f.select :org_id, Org.all.collect {|x| [x.name, x.id]}, {}, :multiple => false
+
+
+  .field
+    = f.label :zones
+    = f.select :zone_ids, Zone.all.collect {|x| [x.epi_code, x.id]}, {}, :multiple => true
+
+
+  .field
+    = f.label :tasks
+    = f.select :task_ids, Task.all.collect {|x| [x.name, x.id]}, {}, :multiple => true
+
+
+  .actions
+    = f.submit 'Save'

@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @org.name
+%p
+  %b Nick:
+  = @org.nick
+%p
+  %b Description:
+  = @org.description
+
+= link_to 'Edit', edit_org_path(@org)
+\|
+= link_to 'Back', orgs_path

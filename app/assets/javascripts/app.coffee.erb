@@ -1,0 +1,8 @@
+angular.module('myApp', ['ngMap', 'myApp.controllers', 'myApp.services', 'restangular'])
+
+  .config [
+    'RestangularProvider'
+    (RestangularProvider) ->
+      RestangularProvider.setBaseUrl "/api"
+
+  ]
