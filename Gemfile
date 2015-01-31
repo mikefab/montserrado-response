@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 gem 'bower-rails'
 gem 'haml-rails'
+gem 'bootstrap_form'
+gem 'validates_email_format_of'
 gem 'rails_12factor', group: :production
 gem 'pry'
 gem 'active_model_serializers'

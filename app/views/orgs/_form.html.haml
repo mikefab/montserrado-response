@@ -1,4 +1,4 @@
-= form_for @org do |f|
+= bootstrap_form_for @org do |f|
   - if @org.errors.any?
     #error_explanation
       %h2= "#{pluralize(@org.errors.count, "error")} prohibited this org from being saved:"
@@ -7,13 +7,10 @@
           %li= msg
 
   .field
-    = f.label :name
     = f.text_field :name
   .field
-    = f.label :nick
-    = f.text_field :nick
+    = f.text_field :nick, placeholder: 'acronym'
   .field
-    = f.label :description
     = f.text_area :description
   .actions
     = f.submit 'Save'

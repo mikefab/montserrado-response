@@ -1,6 +1,5 @@
 class OrgsController < ApplicationController
   before_action :set_org, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
   before_action :is_authorized?
 
   # GET /orgs

@@ -2,7 +2,7 @@
 %html{'ng-app' => 'myApp'}
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Partners2
+    %title Partners Map
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -18,7 +18,7 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{:href => "#"} Partner Map
+          %a.navbar-brand{:href => "/"} Partner Map
         / Collect the nav links, forms, and other content for toggling
         #navbarCollapse.collapse.navbar-collapse
           %ul.nav.navbar-nav{class: 'pull-right'}
@@ -27,8 +27,18 @@
                 = link_to 'login', new_user_session_path
               - else
                 = link_to "log out", destroy_user_session_path, method: :delete
-  %br
-  %br
-  %br
-  .container-fluid
-    = yield
+    %br
+    %br
+    %br
+    .container-fluid
+      = yield
+
+
+    :javascript
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-59199254-1', 'auto');
+      ga('send', 'pageview');

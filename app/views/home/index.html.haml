@@ -19,17 +19,28 @@
             = link_to 'Zones',  zones_path
 
     .col-md-8
-      %span{'ng-show' => '!!zone'}
+      %br
+      %br
+      .span{'ng-show' => '!teams'}
+        %p
+          Click a zone on the map to see the teams operating there and the tasks they're engaged in.
+        %p
+          Add Organizations, teams, people, and tasks with the links below the map.
+        %p
+          An authentication system is in place but is turned off. 
+
+      .span{'ng-show' => '!!zone'}
         Zone: {{zone}}
-      %ul{'ng-repeat' => 'team in teams'}
-        %li
-          .row
-            .col-md-2
-              {{team.name}}
-            .col-md-2
-              {{team.org.nick}}
-            .col-md-2
-              %ul{'ng-repeat' => 'task in team.tasks'}
-                %li 
-                  {{task.name}}
-            .col-md-6
+        %p
+          %ul{'ng-repeat' => 'team in teams'}
+            %li
+              .row
+                .col-md-5
+                  {{team.name}}
+                .col-md-2
+                  {{team.org.nick}}
+                .col-md-5
+                  %ul{'ng-repeat' => 'task in team.tasks'}
+                    %li
+                      &middot; 
+                      {{task.name}}

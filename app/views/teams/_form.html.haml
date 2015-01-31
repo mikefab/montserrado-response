@@ -1,4 +1,4 @@
-= form_for @team do |f|
+= bootstrap_form_for @team do |f|
   - if @team.errors.any?
     #error_explanation
       %h2= "#{pluralize(@team.errors.count, "error")} prohibited this team from being saved:"
@@ -7,22 +7,18 @@
           %li= msg
 
   .field
-    = f.label :name
     = f.text_field :name
 
   .field
-    = f.label :org
     = f.select :org_id, Org.all.collect {|x| [x.name, x.id]}, {}, :multiple => false
 
 
   .field
-    = f.label :zones
-    = f.select :zone_ids, Zone.all.collect {|x| [x.epi_code, x.id]}, {}, :multiple => true
+    = f.select :zone_ids, Zone.all.collect {|x| [x.epi_code, x.id]}, {label: 'Zones'},:multiple => true
 
 
   .field
-    = f.label :tasks
-    = f.select :task_ids, Task.all.collect {|x| [x.name, x.id]}, {}, :multiple => true
+    = f.select :task_ids, Task.all.collect {|x| [x.name, x.id]}, {label: 'Tasks'}, :multiple => true
 
 
   .actions

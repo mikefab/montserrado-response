@@ -1,7 +1,6 @@
 class ZonesController < ApplicationController
   before_action :set_zone, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
-  before_action :is_authorized
+  before_action :is_authorized?
   # GET /zones
   # GET /zones.json
   def index
