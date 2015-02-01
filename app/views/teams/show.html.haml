@@ -17,8 +17,26 @@
   %ul
     %li
     - @team.people.each do |p|
-      = p.full_name
+      = link_to p.full_name, person_path(p)
 
+  / .row
+  /   .col-md-6
+  /     %table.table
+  /       %thead
+  /         %tr
+  /           %th Full name
+  /           %th
+  /           %th
+  /           %th
+            
+  /       %tbody
+  /         - @team.people.each do |person|
+  /           %tr
+  /             %td= person.full_name
+  /             %td= person.teams.map(&:name).join(', ')
+  /             %td= link_to 'Show', person
+  /             %td= link_to 'Edit', edit_person_path(person)
+  /             %td= link_to 'Destroy', person, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 
 = link_to 'Edit', edit_team_path(@team)

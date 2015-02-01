@@ -62,18 +62,14 @@
               %table.table{'ng-show'=>'people.length>0'}
                 %thead
                   %tr
-                    %th First name
-                    %th Middle name
-                    %th Last name
-                    %th Is supervisor
+                    %th Name
+                    %th Supervisor?
                     %th Email
                     %th Phone
                     %th Notes                  
                 %tbody
                   %tr{'ng-repeat' => 'person in people'}
-                    %td {{person.first_name}}
-                    %td {{person.middle_name}}
-                    %td {{person.last_name}}
+                    %td {{person.full_name}}
                     %td {{!!person.is_supervisor}}
                     %td {{person.email}}
                     %td {{person.phone}}
