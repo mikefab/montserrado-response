@@ -12,6 +12,14 @@
   - @team.zones.each do |z|
     = z.epi_code
 
+%p
+  %b People:
+  %ul
+    %li
+    - @team.people.each do |p|
+      = p.full_name
+
+
 
 = link_to 'Edit', edit_team_path(@team)
 \|
