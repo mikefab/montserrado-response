@@ -33,6 +33,6 @@ bundle exec rails g scaffold Team name:string org:references
 bundle exec rails g model TeamsZones team_id:integer zone_id:integer ---no-timestamps --no-id
 bundle exec rails g scaffold Task name:string description:text
 bundle exec rails g model TasksTeams task_id:integer team_id:integer ---no-timestamps --no-id
-bundle exec rails g scaffold Person first_name:string middle_name:string last_name:string  email:string phone:string team:references
+bundle exec rails g scaffold Person first_name:string middle_name:string last_name:string  email:string phone:string
 bundle exec rails g model PeopleTeams person_id:integer team_id:integer ---no-timestamps --no-id
 bundle exec rails g model User first_name:string middle_name:string last_name:string phone:string gender:boolean notes:text is_admin:boolean

@@ -10,14 +10,23 @@
   %b Last name:
   = @person.last_name
 %p
+  %b Is supervisor:
+  = !!@person.is_supervisor
+%p
   %b Email:
   = @person.email
 %p
   %b Phone:
   = @person.phone
 %p
-  %b Team:
-  = @person.team
+  %b Teams:
+  = @person.teams.map(&:name).join(', ')
+
+%p
+  %b notes:
+  = @person.notes
+
+
 
 = link_to 'Edit', edit_person_path(@person)
 \|

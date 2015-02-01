@@ -1,3 +1,4 @@
+
 %div{'ng-controller' => 'myCtrl'}
   .row
     .col-md-4
@@ -21,7 +22,7 @@
     .col-md-8
       %br
       %br
-      .span{'ng-show' => '!teams'}
+      .span{'ng-show' => '!zone'}
         %p
           Click a zone on the map to see the teams operating there and the tasks they're engaged in.
         %p
@@ -30,17 +31,50 @@
           An authentication system is in place but is turned off. 
 
       .span{'ng-show' => '!!zone'}
-        Zone: {{zone}}
-        %p
-          %ul{'ng-repeat' => 'team in teams'}
-            %li
-              .row
-                .col-md-5
-                  {{team.name}}
-                .col-md-2
-                  {{team.org.nick}}
-                .col-md-5
-                  %ul{'ng-repeat' => 'task in team.tasks'}
-                    %li
-                      &middot; 
-                      {{task.name}}
+        .row
+          .col-md-12.pre-scrollable{style: 'max-width:900px;'}
+            Zone: {{zone}}
+
+            %div{'ng-show' => 'teams.length == 0' }
+              %br
+              %br
+              %p
+                There are no teams for this zone. Please add them #{link_to 'here', teams_path}.
+            %p
+              %ul{'ng-repeat' => 'team in teams'}
+                %li
+                  .row
+                    .col-md-5
+                      %span{'ng-click' => 'get_people(team.name)', style: 'cursor:pointer;', 'ng-class' =>"{active: active == team.name}"}
+                        {{team.name}}
+                    .col-md-2
+                      {{team.org.nick}}
+                    .col-md-5
+                      %ul{'ng-repeat' => 'task in team.tasks'}
+                        %li
+                          &middot; 
+                          {{task.name}}
+
+          .col-md-12
+            %hr
+              %div{'ng-show' => 'people.length == 0'}
+                No members under this team yet. Please add them #{link_to 'here', people_path}.
+              %table.table{'ng-show'=>'people.length>0'}
+                %thead
+                  %tr
+                    %th First name
+                    %th Middle name
+                    %th Last name
+                    %th Is supervisor
+                    %th Email
+                    %th Phone
+                    %th Notes                  
+                %tbody
+                  %tr{'ng-repeat' => 'person in people'}
+                    %td {{person.first_name}}
+                    %td {{person.middle_name}}
+                    %td {{person.last_name}}
+                    %td {{!!person.is_supervisor}}
+                    %td {{person.email}}
+                    %td {{person.phone}}
+                    %td {{person.notes}}                  

@@ -30,12 +30,11 @@ ActiveRecord::Schema.define(version: 20150131191228) do
     t.string   "last_name"
     t.string   "email"
     t.string   "phone"
-    t.integer  "team_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.boolean  "is_supervisor"
+    t.text     "notes"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
-
-  add_index "people", ["team_id"], name: "index_people_on_team_id", using: :btree
 
   create_table "people_teams", force: :cascade do |t|
     t.integer  "person_id"
@@ -119,6 +118,5 @@ ActiveRecord::Schema.define(version: 20150131191228) do
     t.datetime "updated_at",  null: false
   end
 
-  add_foreign_key "people", "teams"
   add_foreign_key "teams", "orgs"
 end

@@ -10,6 +10,13 @@ angular.module('myApp.services', [])
       Restangular.service "teams"
   ]
 
+  .factory "PeopleService", [
+    "Restangular"
+    (Restangular) ->
+      Restangular.service "people"
+  ]
+
+
   # .factory('TeamService', [
   #   'Restangular', 'Team',
   #   (Restangular, Team)->

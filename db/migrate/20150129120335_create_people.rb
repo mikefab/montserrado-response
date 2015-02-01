@@ -6,10 +6,12 @@ class CreatePeople < ActiveRecord::Migration
       t.string :last_name
       t.string :email
       t.string :phone
-      t.references :team, index: true
+      t.boolean :is_supervisor
+      t.text   :notes
+
 
       t.timestamps null: false
     end
-    add_foreign_key :people, :teams
+
   end
 end

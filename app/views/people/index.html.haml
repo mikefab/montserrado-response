@@ -6,9 +6,10 @@
       %th First name
       %th Middle name
       %th Last name
+      %th Is supervisor
       %th Email
       %th Phone
-      %th Team
+      %th Teams
       %th
       %th
       %th
@@ -19,9 +20,10 @@
         %td= person.first_name
         %td= person.middle_name
         %td= person.last_name
+        %td= !!person.is_supervisor
         %td= person.email
         %td= person.phone
-        %td= person.team
+        %td= person.teams.map(&:name).join(', ')
         %td= link_to 'Show', person
         %td= link_to 'Edit', edit_person_path(person)
         %td= link_to 'Destroy', person, :method => :delete, :data => { :confirm => 'Are you sure?' }

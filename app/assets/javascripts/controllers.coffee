@@ -3,12 +3,21 @@ angular.module('myApp.controllers', [])
   '$scope'
   '$http'
   'TeamService'
-  ($scope, $http, TeamService) ->
+  'PeopleService'
+  ($scope, $http, TeamService, PeopleService) ->
 
     $scope.click = (e) ->
       $scope.zone = e['row']['EPI_CODE']['value']
       TeamService.getList(epi_code: e['row']['EPI_CODE']['value']).then (teams) ->
-        $scope.teams = teams
+        $scope.teams  = teams
+        $scope.active = teams[0].name
+        $scope.get_people(teams[0].name)
+
+    $scope.get_people = (team) ->
+      PeopleService.getList(team: team).then (people) ->
+        $scope.active = team
+        $scope.people = people
+
 
 
     $scope.$on "mapInitialized", (event, map) ->
@@ -19,9 +28,3 @@ angular.module('myApp.controllers', [])
 
 ]
 
-
-
-        # TeamService.list().then((teams) ->
-        #   $scope.teams = teams
-        #   console.dir teams
-        # )
