@@ -3,9 +3,15 @@ class Api::PeopleController < ApplicationController
 
   def index
     Track.create(ip: request.remote_ip, params: params)
+    # serialized_people =
+    #   ActiveModel::ArraySerializer
+    #            .new(Team.where(name: params[:team]).first.people, each_serializer: PeopleSerializer)
+
     serialized_people =
       ActiveModel::ArraySerializer
-               .new(Team.where(name: params[:team]).first.people, each_serializer: PeopleSerializer)
+               .new(Person.all, each_serializer: PeopleSerializer)
+
+
 
     render json: serialized_people
   end

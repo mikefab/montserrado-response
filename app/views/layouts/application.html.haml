@@ -6,8 +6,48 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-    %script{:src => "//maps.googleapis.com/maps/api/js?sensor=false"}
-    %script{:src => "//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js", :type => "text/javascript"}    
+
+
+    / :javascript
+    /   // 
+    /   window.onload=function(){
+    /   var x = document.getElementById("x"),
+    /   y     = document.getElementById("y"),
+    /   tx    = document.getElementById("tx"),
+    /   dims  = document.getElementById("dims"),
+    /   rect  = document.querySelector("svg");
+      
+    /   rect.addEventListener("mousemove", function(evt) 
+    /   {
+    /       dims.innerHTML = JSON.stringify(evt.target.getBBox()
+    /   );
+      
+    /   var tar = evt.target;
+    /   if(tar.tagName != "svg")
+    /   {
+    /       var m = evt.target.getScreenCTM();
+    /       var abc = evt.target.getAttribute("svgtext");
+    /       tx.innerHTML = abc;
+    /       var p = document.querySelector("svg").createSVGPoint();
+        
+    /       p.x = evt.clientX; 
+    /       p.y = evt.clientY;
+         
+    /       p = p.matrixTransform(m.rotate(-90,317320.99475,720037.432375).inverse());
+    /       x.innerHTML = p.y;
+    /       y.innerHTML = p.x*(-1);
+    /   }
+    /   else
+    /   {
+    /       x.innerHTML = '';
+    /       dims.innerHTML='';
+    /       y.innerHTML = '';
+    /       tx.innerHTML = '';
+    /   }
+    /   }, false);
+    /   }//  
+      
+
   %body
     %nav#myNavbar.navbar.navbar-default.navbar-inverse.navbar-fixed-top{:role => "navigation"}
       / Brand and toggle get grouped for better mobile display

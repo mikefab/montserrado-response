@@ -4,9 +4,8 @@
     .col-md-4
       .row
         .col-md-12
-          %map{ "disable-default-u-i" => "true", "disable-double-click-zoom" => "true", :draggable => "true", "dragging-cursor" => "move", "map-type-id" => "TERRAIN", :tilt => "45", :zoom => "11"}
-            %fusion-tables-layer{'on-click' => "click(this);", 'suppress-info-windows'=>"true", :query => "{select: 'Geocodable address',  from: '1ttolLwbnJpNcsprPG-98e_ZsakZDRQ5Y7aUeGF5E'}"}
-            / %kml-layer{:url => "zones.kml"}
+          %map
+
         .col-md-12
           - if is_authorized?
             = link_to 'Orgs',   orgs_path
@@ -21,27 +20,26 @@
 
     .col-md-8
       %br
+        %form
+          %label{"ng-repeat" => "(task, enabled) in tasks"}
+            %input{"ng-model" => "tasks[task]", :type => "checkbox"}/
+            {{task}}
+          
       %br
-      .span{'ng-show' => '!zone'}
-        %p
-          Click a zone on the map to see the teams operating there and the tasks they're engaged in.
-        %p
-          Add Organizations, teams, people, and tasks with the links below the map.
-        %p
-          An authentication system is in place but is turned off. 
 
       .span{'ng-show' => '!!zone'}
         .row
           .col-md-12.pre-scrollable{style: 'max-width:900px;'}
             Zone: {{zone}}
 
-            %div{'ng-show' => 'teams.length == 0' }
+            %div{'ng-show' => 'active_teams.length == 0' }
               %br
               %br
               %p
                 There are no teams for this zone. Please add them #{link_to 'here', teams_path}.
             %p
-              %ul{'ng-repeat' => 'team in teams'}
+
+              %ul{'ng-repeat' => 'team in active_teams'}
                 %li
                   .row
                     .col-md-5
@@ -54,6 +52,9 @@
                         %li
                           &middot; 
                           {{task.name}}
+                  
+              
+              
 
           .col-md-12
             %hr

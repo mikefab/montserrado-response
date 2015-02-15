@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require angular/angular
 //= require restangular
-//= require ngmap
+//= require lodash
+//= require underscore
 //= require_tree .
