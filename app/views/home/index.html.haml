@@ -7,7 +7,7 @@
           %map
 
         .col-md-12
-          - if current_user
+          - if is_admin?
 
             = link_to 'Orgs',   orgs_path
             |      
