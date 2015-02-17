@@ -9,6 +9,7 @@ angular.module('myApp.controllers', [])
     $scope.get_teams = () ->
       TeamService.getList().then (teams) ->
         $scope.teams = teams
+        console.log teams
         $scope.tasks = get_tasks teams
 
  
@@ -23,6 +24,8 @@ angular.module('myApp.controllers', [])
           _.each _.keys($scope.tasks), (task) ->
             if $scope.tasks[task] == true
               _.each $scope.teams, (team) ->
+                console.log team.epi_codes
+                console.log zone.replace(/\s+$/, '')
                 if _.contains((_.map team.tasks, _.iteratee("name")), task)  && _.contains(team.epi_codes, zone.replace(/\s+$/, ''))
                   $scope.active_teams.push team unless  _.contains($scope.active_teams, team)
 

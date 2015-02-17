@@ -14,7 +14,7 @@
 
 
   .field
-    = f.select :zone_ids, Zone.all.collect {|x| [x.epi_code, x.id]}, {label: 'Zones'},:multiple => true
+    = f.select :zone_ids, Zone.all.collect {|x| [ "#{x.epi_code} #{x.cnam}", x.id]}, {label: 'Zones'},:multiple => true
 
 
   .field
