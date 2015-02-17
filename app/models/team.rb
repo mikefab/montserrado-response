@@ -7,6 +7,10 @@ class Team < ActiveRecord::Base
   validates_presence_of :name
 
 
+  def people
+	 Person.all.order(is_supervisor: :desc)
+  end
+
   def epi_codes
   	self.zones.map(&:epi_code)
   end

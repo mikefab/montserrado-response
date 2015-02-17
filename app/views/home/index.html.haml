@@ -21,8 +21,8 @@
     .col-md-8
       %br
         %form
-          %label{"ng-repeat" => "(task, enabled) in tasks"}
-            %input{"ng-model" => "tasks[task]", :type => "checkbox"}/
+          .field{"ng-repeat" => "(task, enabled) in tasks"}
+            %input{"ng-model" => "tasks[task]", :type => "checkbox", 'ng-click' => 'reset_zone()'}/
             {{task}}
           
       %br
@@ -54,32 +54,16 @@
                           {{task.name}}
 
                   .row{'ng-repeat' => 'person in team.people'}
+
                     .col-md-3
                       {{person.first_name}} {{person.middle_name}} {{person.last_name}}
+                    .col-md-1
+                      %div{'ng-show' => 'person.is_supervisor == true'}
+                        *
                     .col-md-2
                       {{person.phone}}
                     .col-md-2
                       {{person.email}}
-                    .col-md-7
+                    .col-md-6
                       {{person.notes}}
-                %hr              
-
-          / .col-md-12
-          /   %hr
-          /     %div{'ng-show' => 'people.length == 0'}
-          /       No members under this team yet. Please add them #{link_to 'here', people_path}.
-          /     %table.table{'ng-show'=>'people.length>0'}
-          /       %thead
-          /         %tr
-          /           %th Name
-          /           %th Supervisor?
-          /           %th Email
-          /           %th Phone
-          /           %th Notes                  
-          /       %tbody
-          /         %tr{'ng-repeat' => 'person in people'}
-          /           %td {{person.full_name}}
-          /           %td {{!!person.is_supervisor}}
-          /           %td {{person.email}}
-          /           %td {{person.phone}}
-          /           %td {{person.notes}}                  
+                %hr                           

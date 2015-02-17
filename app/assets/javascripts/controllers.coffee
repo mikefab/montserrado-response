@@ -5,17 +5,6 @@ angular.module('myApp.controllers', [])
   'TeamService'
   'PeopleService'
   ($scope, $http, TeamService, PeopleService) ->
-    # $scope.click = (e) ->
-    #   $scope.zone = e['row']['EPI_CODE']['value']
-    #   TeamService.getList(epi_code: e['row']['EPI_CODE']['value']).then (teams) ->
-    #     $scope.teams  = teams
-    #     $scope.active = teams[0].name
-    #     $scope.get_people(teams[0].name)
-
-    # $scope.get_people = (team) ->
-    #   PeopleService.getList(team: team).then (people) ->
-    #     $scope.active = team
-    #     $scope.people = people
 
     $scope.get_teams = () ->
       TeamService.getList().then (teams) ->
@@ -23,17 +12,21 @@ angular.module('myApp.controllers', [])
         $scope.tasks = get_tasks teams
 
  
+    $scope.reset_zone = () ->
+      $scope.zone = null
+
     $scope.show_teams = (zone) ->
       if !!zone
-        $scope.zone = zone
-        $scope.active_teams = []
-        _.each _.keys($scope.tasks), (task) ->
-          if $scope.tasks[task] == true
-            _.each $scope.teams, (team) ->
-              if _.contains((_.map team.tasks, _.iteratee("name")), task)  && _.contains(team.epi_codes, zone.replace(/\s+$/, ''))
-                $scope.active_teams.push team unless  _.contains($scope.active_teams, team)
+        if zone != $scope.zone
+          $scope.zone = zone
+          $scope.active_teams = []
+          _.each _.keys($scope.tasks), (task) ->
+            if $scope.tasks[task] == true
+              _.each $scope.teams, (team) ->
+                if _.contains((_.map team.tasks, _.iteratee("name")), task)  && _.contains(team.epi_codes, zone.replace(/\s+$/, ''))
+                  $scope.active_teams.push team unless  _.contains($scope.active_teams, team)
 
-            $scope.$apply()
+              $scope.$apply()
               
 
 
