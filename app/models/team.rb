@@ -8,7 +8,7 @@ class Team < ActiveRecord::Base
 
 
   def people
-	 Person.all.order(is_supervisor: :desc)
+	  Person.all.order(is_supervisor: :desc)
   end
 
   def epi_codes
