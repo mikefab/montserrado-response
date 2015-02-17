@@ -9,7 +9,7 @@ class Api::PeopleController < ApplicationController
 
     serialized_people =
       ActiveModel::ArraySerializer
-               .new(Person.all.order(is_supervisor: :desc, each_serializer: PeopleSerializer)
+               .new(Person.all.order(is_supervisor: :desc, each_serializer: PeopleSerializer))
 
 
 
