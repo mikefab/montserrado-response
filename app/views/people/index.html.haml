@@ -9,6 +9,7 @@
       %th Is supervisor
       %th Email
       %th Phone
+      %th Org
       %th Teams
       %th
       %th
@@ -23,6 +24,7 @@
         %td= !!person.is_supervisor
         %td= person.email
         %td= person.phone
+        %td= person.orgs.first.name
         %td= person.teams.map(&:name).join(', ')
         %td= link_to 'Show', person
         %td= link_to 'Edit', edit_person_path(person)

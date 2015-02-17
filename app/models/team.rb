@@ -5,6 +5,7 @@ class Team < ActiveRecord::Base
   has_and_belongs_to_many :people, :join_table => "people_teams"
 
   validates_presence_of :name
+  validates_presence_of :org
 
 
   def people
