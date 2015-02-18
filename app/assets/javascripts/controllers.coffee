@@ -8,6 +8,7 @@ angular.module('myApp.controllers', [])
 
     $scope.get_teams = () ->
       TeamService.getList().then (teams) ->
+        console.log teams
         $scope.teams = teams
         $scope.tasks = get_tasks teams
 

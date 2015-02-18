@@ -44,7 +44,7 @@
                 %li
                   .row
                     .col-md-5
-                      %strong{'ng-click' => 'get_people(team.name)', style: 'cursor:pointer;', 'ng-class' =>"{active: active == team.name}"}
+                      %strong
                         {{team.name}}
                     .col-md-2
                       {{team.org.nick}}
@@ -54,7 +54,7 @@
                           &middot; 
                           {{task.name}}
 
-                  .row{'ng-repeat' => 'person in team.people'}
+                  .row{'ng-repeat' => 'person in team.ordered_people'}
 
                     .col-md-3
                       {{person.first_name}} {{person.middle_name}} {{person.last_name}}

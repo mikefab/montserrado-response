@@ -1,5 +1,4 @@
 class Org < ActiveRecord::Base
-  has_many :orgs
   validates_presence_of :name
   validates_presence_of :nick
 

@@ -8,8 +8,8 @@ class Team < ActiveRecord::Base
   validates_presence_of :org
 
 
-  def people
-	  Person.all.order(is_supervisor: :desc)
+  def ordered_people
+	  self.people.all.order(is_supervisor: :desc)
   end
 
   def epi_codes
