@@ -8,4 +8,8 @@ class Person < ActiveRecord::Base
   	"#{self.first_name} #{self.middle_name} #{self.last_name}"
   end
 
+  def org
+  	self.orgs.first
+  end
+
 end
