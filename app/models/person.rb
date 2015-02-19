@@ -13,7 +13,7 @@ class Person < ActiveRecord::Base
   end
 
   def org_name
-  	self.orgs.first.name
+  	self.org.name.downcase
   end
 
 
