@@ -5,7 +5,7 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all.sort_by{|t| t.org.name}
+    @teams = Team.all.sort_by{|t| [t.org.name, t.name]}
   end
 
   # GET /teams/1
