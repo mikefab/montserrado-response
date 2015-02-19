@@ -12,4 +12,9 @@ class Person < ActiveRecord::Base
   	self.orgs.first
   end
 
+  def org_name
+  	self.orgs.first.name
+  end
+
+
 end
