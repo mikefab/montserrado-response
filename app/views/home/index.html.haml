@@ -43,12 +43,12 @@
               %ul{'ng-repeat' => 'team in active_teams'}
                 %li
                   .row
-                    .col-md-5
+                    .col-md-4
                       %strong
                         {{team.name}}
-                    .col-md-2
-                      {{team.org.nick}}
-                    .col-md-5
+                    .col-md-4
+                      {{team.org.name}}
+                    .col-md-4
                       %ul{'ng-repeat' => 'task in team.tasks'}
                         %li
                           &middot; 

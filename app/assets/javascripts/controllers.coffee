@@ -34,7 +34,7 @@ angular.module('myApp.controllers', [])
       tasks = {}
       _.each teams, (team) ->
         _.each team.tasks, (task) ->
-          tasks[task.name] = false
+          tasks[task.name] = true
 
       return tasks
 
