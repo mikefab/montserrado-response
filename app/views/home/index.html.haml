@@ -22,7 +22,7 @@
     .col-md-8
       %br
         %form
-          .field{"ng-repeat" => "(task, enabled) in tasks"}
+          .field{'ng-repeat' => '(task, enabled) in tasks', 'ng-cloak' => ''}
             %input{"ng-model" => "tasks[task]", :type => "checkbox", 'ng-click' => 'reset_zone()'}/
             {{task}}
           
