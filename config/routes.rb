@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   resources :zones
 
   namespace :api do
-    resources :teams, defaults: { format: :json }
+    resources :zones, defaults:  { format: :json }
+    resources :teams, defaults:  { format: :json }
     resources :people, defaults: { format: :json }
   end
 

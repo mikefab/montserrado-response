@@ -31,7 +31,11 @@
       .span{'ng-show' => '!!zone', 'ng-cloak' => ''}
         .row
           .col-md-12.pre-scrollable{style: 'max-width:900px;'}
-            Zone: {{zone}}
+            .row
+              .col-md-2
+                Zone: {{zone}}
+              .col-md-10
+                Area: {{zones[zone]}}
 
             %div{'ng-show' => 'active_teams.length == 0' }
               %br
