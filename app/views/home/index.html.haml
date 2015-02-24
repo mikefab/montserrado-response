@@ -21,11 +21,16 @@
 
     .col-md-8
       %br
-        %form
-          .field{'ng-repeat' => '(task, enabled) in tasks', 'ng-cloak' => ''}
-            %input{"ng-model" => "tasks[task]", :type => "checkbox", 'ng-click' => 'reset_zone()'}/
-            {{task}}
-          
+      .row
+        .col-md-4
+          %form
+            .field{'ng-repeat' => '(task, enabled) in tasks', 'ng-cloak' => ''}
+              %input{"ng-model" => "tasks[task]", :type => "checkbox", 'ng-click' => 'reset_zone()'}/
+              {{task}}
+        .col-md-4
+          %strong
+            Mouse over an epidemic zone to see the teams performing the checked tasks.          
+
       %br
 
       .span{'ng-show' => '!!zone', 'ng-cloak' => ''}
