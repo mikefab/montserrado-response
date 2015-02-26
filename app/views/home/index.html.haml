@@ -17,8 +17,8 @@
             |
             = link_to 'Tasks',  tasks_path
             |
-            = link_to 'Zones',  zones_path
-            |
+            / = link_to 'Zones',  zones_path
+            / |
             = link_to 'Positions',  positions_path
 
     .col-md-8
@@ -30,11 +30,9 @@
               %input{"ng-model" => "tasks[task]", :type => "checkbox", 'ng-click' => 'reset_zone()'}/
               {{task}}
         .col-md-4
-          %p
-            Global Communities, Medical Teams International, International Rescue Committee, and Action Contre La Faim operate in Monserrado county, encompassing the capital of Liberia, Monrovia.
           %strong
             %p
-              Mouse over an epidemic zone to see the teams performing the checked tasks.    
+              Mouse over an epi zone to see the teams performing the checked tasks.    
       %br
 
       .span{'ng-show' => '!!zone', 'ng-cloak' => ''}
@@ -68,12 +66,15 @@
                           {{task.name}}
 
                   .row{'ng-repeat' => 'person in team.ordered_people'}
-
                     .col-md-3
                       {{person.first_name}} {{person.middle_name}} {{person.last_name}}
                     .col-md-1
-                      %div{'ng-show' => 'person.is_supervisor == true'}
-                        *
+                      {{person.positions}}
+                      asf
+
+                    / .col-md-1
+                    /   %div{'ng-show' => 'person.is_supervisor == true'}
+                    /     *
                     - if is_admin?
                       .col-md-2 
                         {{person.phone}}
