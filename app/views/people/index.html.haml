@@ -6,10 +6,11 @@
       %th First name
       %th Middle name
       %th Last name
-      %th Is supervisor
+      / %th Is supervisor
       %th Email
       %th Phone
       %th Org
+      %th Position
       %th Teams
       %th
       %th
@@ -21,10 +22,11 @@
         %td= person.first_name
         %td= person.middle_name
         %td= person.last_name
-        %td= !!person.is_supervisor
+        / %td= !!person.is_supervisor
         %td= person.email
         %td= person.phone
         %td= person.orgs.first.name
+        %td= person.positions.map(&:name).join(', ')
         %td= person.teams.map(&:name).join(', ')
         %td= link_to 'Show', person
         %td= link_to 'Edit', edit_person_path(person)

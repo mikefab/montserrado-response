@@ -18,6 +18,11 @@
 %p
   %b Phone:
   = @person.phone
+
+%p
+  %b Position:
+  = @person.positions.map(&:name).join(', ')
+
 %p
   %b Teams:
   = @person.teams.map(&:name).join(', ')

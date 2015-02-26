@@ -36,3 +36,5 @@ bundle exec rails g model TasksTeams task_id:integer team_id:integer ---no-times
 bundle exec rails g scaffold Person first_name:string middle_name:string last_name:string  email:string phone:string
 bundle exec rails g model PeopleTeams person_id:integer team_id:integer ---no-timestamps --no-id
 bundle exec rails g model User first_name:string middle_name:string last_name:string phone:string gender:boolean notes:text is_admin:boolean
+bundle exec rails g scaffold Position name:string description:text
+bundle exec rails g model PeoplePositions person_id:integer position_id:integer ---no-timestamps --no-id

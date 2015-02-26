@@ -24,8 +24,13 @@
       .field
         = f.text_field :phone
 
+  / .field
+  /   = f.check_box :is_supervisor
+
   .field
-    = f.check_box :is_supervisor
+    = f.select :position_ids, Position.all.collect {|x| [x.name, x.id]}, {label: 'Positions'}, :multiple => true
+
+
   .field
     = f.select :team_ids, Team.all.collect {|x| [x.org.nick + ': '+ x.name, x.id]}, {label: 'Teams'}, :multiple => true
 
