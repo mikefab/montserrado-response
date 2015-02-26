@@ -25,7 +25,7 @@
         / %td= !!person.is_supervisor
         %td= person.email
         %td= person.phone
-        %td= person.orgs.first.name
+        %td= person.org.name
         %td= person.positions.map(&:name).join(', ')
         %td= person.teams.map(&:name).join(', ')
         %td= link_to 'Show', person

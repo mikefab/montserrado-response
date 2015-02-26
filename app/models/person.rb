@@ -11,11 +11,11 @@ class Person < ActiveRecord::Base
   end
 
   def org
-  	self.orgs.first
+    self.orgs.first ? self.orgs.first : Struct.new(:name)
   end
 
   def org_name
-  	self.org.name.downcase
+    self.org.name.nil? ? 'none' : self.org.name.downcase
   end
 
 
