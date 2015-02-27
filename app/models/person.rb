@@ -11,12 +11,11 @@ class Person < ActiveRecord::Base
   end
 
   def org
+    # If a team is removed, a person still needs an org object
     self.orgs.first ? self.orgs.first : Struct.new(:name)
   end
 
   def org_name
     self.org.name.nil? ? 'none' : self.org.name.downcase
   end
-
-
 end

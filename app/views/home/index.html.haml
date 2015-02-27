@@ -69,8 +69,7 @@
                     .col-md-3
                       {{person.first_name}} {{person.middle_name}} {{person.last_name}}
                     .col-md-1
-                      {{person.positions}}
-                      asf
+                      {{people_position[person.id]}}
 
                     / .col-md-1
                     /   %div{'ng-show' => 'person.is_supervisor == true'}

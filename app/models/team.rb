@@ -9,8 +9,16 @@ class Team < ActiveRecord::Base
 
 
   def ordered_people
-	  self.people.all.order(is_supervisor: :desc)
+	  #self.people.all.order(is_supervisor: :desc)
+    self.people.all
   end
+
+  def people_positions
+    #self.people.all.map{|p| {person_id: p.id, positions: p.positions.map(&:name).join(',')}}
+    #self.people.all.map{|p| {p.id => p.positions.map(&:name).join(',')}}
+    self.people.all.map.inject({}){|h, p| h[p.id] = p.positions.map(&:name).join(','); h}
+  end
+
 
   def epi_codes
   	self.zones.map(&:epi_code)

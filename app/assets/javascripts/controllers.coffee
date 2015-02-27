@@ -9,7 +9,6 @@ angular.module('myApp.controllers', [])
     $scope.zones = {}
 
     $http.get('/api/zones').success((data, status, headers, config) ->
-      console.log eval data.zones
       _.each data.zones, (e) ->
         $scope.zones[(_.keys e)[0]] = (_.values e)[0]
     ).then () ->
@@ -17,6 +16,8 @@ angular.module('myApp.controllers', [])
 
     $scope.get_teams = () ->
       TeamService.getList().then (teams) ->
+        if teams.length > 0
+          $scope.people_position = teams[0]['people_positions'] 
         $scope.teams = teams
         $scope.tasks = get_tasks teams
 
