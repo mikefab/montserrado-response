@@ -3,13 +3,27 @@ class Task < ActiveRecord::Base
 
   def self.db_seed
     [
-      'Facility Assessment',
-      'Training for healthcare',
-      'Safe Burials',
-      'Contact tracing',
-      'Case investigation'
+      'Active Case Finding',
+      'Case Investigation',
+      'Community Engagement',
+      'Community Listing',
+      'Contact Tracing',
+      'Dispatch',
+      'Dead Body Management',
+      'Disinfection',
+      'Food Distribution and Quarantine Care',
+      'Health Promotion',
+      'Infection Prevention and Control',
+      'Psychosocial Support',
+      'Sector Leadership',
+      'Supporting Partners'
+
+
+
+
+
     ].each do |task|
-      Task.create!(name: task)
+      Task.first_or_initialize(name: task)
     end
   end
 end
