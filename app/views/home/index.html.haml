@@ -51,7 +51,7 @@
                 There are no teams for this zone. Please add them #{link_to 'here', teams_path}.
             %p
 
-              %ul{'ng-repeat' => 'team in active_teams'}
+              %ul{'ng-repeat' => 'team in active_teams', style: 'font-size:8pt;'}
                 %li
                   .row
                     .col-md-4
@@ -66,9 +66,9 @@
                           {{task.name}}
 
                   .row{'ng-repeat' => 'person in team.ordered_people'}
-                    .col-md-3
+                    .col-md-2
                       {{person.first_name}} {{person.middle_name}} {{person.last_name}}
-                    .col-md-1
+                    .col-md-2
                       {{people_position[person.id]}}
 
                     / .col-md-1
@@ -79,6 +79,6 @@
                         {{person.phone}}
                       .col-md-2
                         {{person.email}}
-                      .col-md-6
+                      .col-md-4
                         {{person.notes}}
                 %hr                           

@@ -17,11 +17,6 @@ class Task < ActiveRecord::Base
       'Psychosocial Support',
       'Sector Leadership',
       'Supporting Partners'
-
-
-
-
-
     ].each do |task|
       Task.find_or_initialize_by(name: task).save!
     end
