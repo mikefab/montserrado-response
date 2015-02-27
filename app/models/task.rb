@@ -23,7 +23,7 @@ class Task < ActiveRecord::Base
 
 
     ].each do |task|
-      Task.first_or_initialize(name: task)
+      Task.find_or_initialize_by(name: task).save!
     end
   end
 end
