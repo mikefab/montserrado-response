@@ -8,5 +8,6 @@ class CreateCommunities < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    Community.seed_data
   end
 end
