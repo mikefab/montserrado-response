@@ -28,9 +28,11 @@ angular.module('myApp.controllers', [])
             h[c['zone_code']].push c['name']
         $scope.communities = h
     $scope.get_teams = () ->
+      $scope.people_position = {}
       TeamService.getList().then (teams) ->
         if teams.length > 0
           $scope.people_position = teams[0]['people_positions'] 
+        console.log teams[0]['people_positions'] 
         $scope.teams = teams
         $scope.tasks = get_tasks teams
         $scope.get_communities()
