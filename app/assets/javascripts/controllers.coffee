@@ -31,8 +31,10 @@ angular.module('myApp.controllers', [])
       $scope.people_position = {}
       TeamService.getList().then (teams) ->
         if teams.length > 0
-          $scope.people_position = teams[0]['people_positions'] 
-        console.log teams[0]['people_positions'] 
+          _.each teams, (t) ->
+            _.each t['people_positions'], (v, k) ->
+              $scope.people_position[k] = v
+
         $scope.teams = teams
         $scope.tasks = get_tasks teams
         $scope.get_communities()
