@@ -16,6 +16,19 @@ angular.module('myApp.services', [])
       Restangular.service "people"
   ]
 
+  .factory "CommunityService", [
+    "Restangular"
+    (Restangular) ->
+      Restangular.service "communities"
+  ]
+
+  .factory "ZoneService", [
+    "Restangular"
+    (Restangular) ->
+      Restangular.service "zones"
+  ]
+
+
 
   # .factory('TeamService', [
   #   'Restangular', 'Team',

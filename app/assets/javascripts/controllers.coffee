@@ -2,24 +2,38 @@ angular.module('myApp.controllers', [])
 .controller 'myCtrl', [
   '$scope'
   '$http'
+  'CommunityService'
   'TeamService'
-  'PeopleService'
-  ($scope, $http, TeamService, PeopleService) ->
+  'ZoneService'
 
-    $scope.zones = {}
+  ($scope, $http, CommunityService, TeamService, ZoneService) ->
 
+    $scope.zone_names = {}
+    $scope.zone_ids   = {}
     $http.get('/api/zones').success((data, status, headers, config) ->
-      _.each data.zones, (e) ->
-        $scope.zones[(_.keys e)[0]] = (_.values e)[0]
+      _.each data, (e) ->
+        $scope.zone_names[e['epi_code']] = e['cnam']
+        $scope.zone_ids[e['id']]         = e['cnam']
     ).then () ->
       $scope.get_teams()
 
+    $scope.get_communities = () ->
+      h = {}
+      CommunityService.getList().then (communities) ->
+        _.each communities, (c) ->
+          unless h[c['zone_code']]
+            h[c['zone_code']] = []
+            h[c['zone_code']].push c['name']
+          else
+            h[c['zone_code']].push c['name']
+        $scope.communities = h
     $scope.get_teams = () ->
       TeamService.getList().then (teams) ->
         if teams.length > 0
           $scope.people_position = teams[0]['people_positions'] 
         $scope.teams = teams
         $scope.tasks = get_tasks teams
+        $scope.get_communities()
 
 
     $scope.reset_zone = () ->

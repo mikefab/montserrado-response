@@ -5,10 +5,10 @@ class Zone < ActiveRecord::Base
 
   def self.zone_table
     [
-      {'A2'   => 'Rehab/Borbor Town'},
-      {'A1'   => 'Kemah Town/Omega'},
-      {'B1'   => '72nd Community'},
-      {'B2'   => 'Rock Hill'},
+      {'1100A2'   => 'Rehab/Borbor Town'},
+      {'1100A1'   => 'Kemah Town/Omega'},
+      {'1100B1'   => '72nd Community'},
+      {'1100B2'   => 'Rock Hill'},
       {'1000' => 'Congo Town'},
       {'900'  => 'Old Road'},
       {'800'  => 'Lakpazee'},
@@ -35,5 +35,9 @@ class Zone < ActiveRecord::Base
     Zone.zone_table.each do |e|
       Zone.create!(epi_code: e.keys[0], cnam: e.values[0]) 
     end
+  end
+
+  def self.zone_hash
+    Zone.zone_table.inject({}){|h, z| h[z.keys[0]] = z.values[0]; h}
   end
 end

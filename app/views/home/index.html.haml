@@ -32,17 +32,17 @@
         .col-md-4
           %strong
             %p
-              Mouse over an epi zone to see the teams performing the checked tasks.    
+              Mouse over an EPI zone to see the teams performing the checked tasks.    
       %br
 
       .span{'ng-show' => '!!zone', 'ng-cloak' => ''}
-        .row
+        .row{style: 'min-height: 300px;'} 
           .col-md-12.pre-scrollable{style: 'max-width:900px;'}
             .row
               .col-md-2
                 Zone: {{zone}}
               .col-md-10
-                Area: {{zones[zone]}}
+                Area: {{zone_names[zone]}}
 
             %div{'ng-show' => 'active_teams.length == 0' }
               %br
@@ -82,3 +82,9 @@
                       .col-md-4
                         {{person.notes}}
                 %hr                           
+
+
+        .row
+          .col-md-12
+            %span{'ng-repeat' => 'community in communities[zone]'}
+              {{community}}    

@@ -1,0 +1,83 @@
+class CommunitiesController < ApplicationController
+  before_action :set_community, only: [:show, :edit, :update, :destroy]
+
+  # GET /communities
+  # GET /communities.json
+  def index
+    @communities = Community.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @communities }
+    end
+  end
+
+  # GET /communities/1
+  # GET /communities/1.json
+  def show
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @community }
+    end
+  end
+
+  # GET /communities/new
+  def new
+    @community = Community.new
+  end
+
+  # GET /communities/1/edit
+  def edit
+  end
+
+  # POST /communities
+  # POST /communities.json
+  def create
+    @community = Community.new(community_params)
+
+    respond_to do |format|
+      if @community.save
+        format.html { redirect_to @community, notice: 'Community was successfully created.' }
+        format.json { render json: @community, status: :created }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @community.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /communities/1
+  # PATCH/PUT /communities/1.json
+  def update
+    respond_to do |format|
+      if @community.update(community_params)
+        format.html { redirect_to @community, notice: 'Community was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @community.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /communities/1
+  # DELETE /communities/1.json
+  def destroy
+    @community.destroy
+    respond_to do |format|
+      format.html { redirect_to communities_url }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_community
+      @community = Community.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def community_params
+      params.require(:community).permit(:name, :zone_id, :description, :notes)
+    end
+end

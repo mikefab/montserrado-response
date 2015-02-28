@@ -38,3 +38,4 @@ bundle exec rails g model PeopleTeams person_id:integer team_id:integer ---no-ti
 bundle exec rails g model User first_name:string middle_name:string last_name:string phone:string gender:boolean notes:text is_admin:boolean
 bundle exec rails g scaffold Position name:string description:text
 bundle exec rails g model PeoplePositions person_id:integer position_id:integer ---no-timestamps --no-id
+bundle exec rails g scaffold County name:string zone_id:integer description:text notes:text

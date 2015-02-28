@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :communities
+
   resources :positions
 
   devise_for :users
@@ -15,9 +17,10 @@ Rails.application.routes.draw do
   resources :zones
 
   namespace :api do
-    resources :zones, defaults:  { format: :json }
-    resources :teams, defaults:  { format: :json }
-    resources :people, defaults: { format: :json }
+    resources :zones,       defaults: { format: :json }
+    resources :communities, defaults: { format: :json }
+    resources :teams,       defaults: { format: :json }
+    resources :people,      defaults: { format: :json }
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
