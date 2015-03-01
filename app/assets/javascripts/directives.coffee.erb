@@ -1,5 +1,6 @@
 angular.module('myApp.directives', [])
   .directive 'map', () ->
+    console.log "<%= asset_path 'map.html'%>"
     restrict: 'E'
     templateUrl: "<%= asset_path 'map.html' %>";
     link: ($scope, $el, $attrs) ->
