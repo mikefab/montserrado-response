@@ -5,7 +5,7 @@ class Community < ActiveRecord::Base
     self.zone.epi_code
   end
 
-  def self.db_seed
+  def self.seed_data
     load File.join(Rails.root, 'Rakefile')
     Rake::Task['import_communities'].invoke
   end
