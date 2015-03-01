@@ -1,12 +1,40 @@
 angular.module('myApp.controllers', [])
+
+
+.controller "ModalInstanceCtrl", ($scope, $modalInstance, org) ->
+  $scope.org = org
+  $scope.cancel = ->
+    $modalInstance.dismiss "cancel"
+
+
+
 .controller 'myCtrl', [
   '$scope'
   '$http'
+  '$modal'
+  '$log'
   'CommunityService'
   'TeamService'
   'ZoneService'
 
-  ($scope, $http, CommunityService, TeamService, ZoneService) ->
+  ($scope, $http, $modal, $log, CommunityService, TeamService, ZoneService) ->
+
+
+    $scope.open = (org) ->
+      $scope.org = org
+      modalInstance = $modal.open(
+        templateUrl: 'assets/organization.html'
+        controller: 'ModalInstanceCtrl'
+        size: 'md'
+        resolve: org: ->
+          $scope.org
+      )
+      # modalInstance.result.then ((selectedItem) ->
+      #   $scope.selected = selectedItem
+      #   return
+      # ), ->
+      #   $log.info 'Modal dismissed at: ' + new Date
+
 
     $scope.zone_names = {}
     $scope.zone_ids   = {}

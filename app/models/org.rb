@@ -1,7 +1,8 @@
 class Org < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :nick
-
+  validates :nick, :uniqueness => true
+  validates :name, :uniqueness => true
 
   def self.db_seed
     [

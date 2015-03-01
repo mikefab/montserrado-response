@@ -35,6 +35,7 @@
               Mouse over an EPI zone to see the teams performing the checked tasks.    
       %br
 
+
       .span{'ng-show' => '!!zone', 'ng-cloak' => ''}
         .row{style: 'min-height: 300px;'} 
           .col-md-12.pre-scrollable{style: 'max-width:900px;'}
@@ -58,7 +59,8 @@
                       %strong
                         {{team.name}}
                     .col-md-4
-                      {{team.org.name}}
+                      %a{'ng-click' => "open(team.org)", href: '#'}
+                        {{team.org.name}}
                     .col-md-4
                       %ul{'ng-repeat' => 'task in team.tasks'}
                         %li

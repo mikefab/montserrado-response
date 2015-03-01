@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require angular/angular
 //= require restangular
+//= require angular-ui-bootstrap-tpls
 //= require lodash
 //= require underscore
 //= require_tree .

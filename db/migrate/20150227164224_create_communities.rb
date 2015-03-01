@@ -8,6 +8,7 @@ class CreateCommunities < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    Community.db_seed
+    Community.seed_data if ActiveRecord::Base.connection.table_exists? 'communities'
+    
   end
 end

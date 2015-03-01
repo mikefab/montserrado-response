@@ -12,8 +12,8 @@ class CreateZones < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    Zone.seed_data if ActiveRecord::Base.connection.table_exists? 'zones'
     
-    Zone.seed_data
 
   end
 end
