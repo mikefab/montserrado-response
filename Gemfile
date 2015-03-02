@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
 gem 'angular-ui-bootstrap-rails'
-#gem 'bootstrap-sass', '~> 3.3.3'
+gem 'bootstrap-sass', '~> 3.3.3'
 
-gem "bootstrap-sass", "~> 3.1.1.0"
 gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 gem 'bower-rails'
 gem 'haml-rails'
