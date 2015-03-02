@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 gem 'angular-ui-bootstrap-rails'
+gem 'bootstrap-sass'
 gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 gem 'bower-rails'
 gem 'haml-rails'
