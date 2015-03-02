@@ -1,5 +1,10 @@
 angular.module('myApp.controllers', [])
 
+.controller "ModalInstanceCtrl", ($scope, $modalInstance, org) ->
+  $scope.org = org
+  $scope.cancel = ->
+    $modalInstance.dismiss "cancel"
+
 .controller 'myCtrl', [
   '$scope'
   '$http'
@@ -8,6 +13,7 @@ angular.module('myApp.controllers', [])
   'CommunityService'
   'TeamService'
   'ZoneService'
+
 
   ($scope, $http, $modal, $log, CommunityService, TeamService, ZoneService) ->
 
@@ -89,7 +95,4 @@ angular.module('myApp.controllers', [])
 
 ]
 
-.controller "ModalInstanceCtrl", ($scope, $modalInstance, org) ->
-  $scope.org = org
-  $scope.cancel = ->
-    $modalInstance.dismiss "cancel"
+
