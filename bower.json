@@ -17,6 +17,7 @@
     "angular": "latest",
     "bootstrap-sass-official": "latest",
     "underscore": "latest",
-    "angular-sanitize": "latest"
+    "angular-sanitize": "latest",
+    "restangular": "v1.4.0"
   }
 }

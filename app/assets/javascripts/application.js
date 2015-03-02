@@ -13,8 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require angular/angular
-//= require restangular
 //= require angular-ui-bootstrap-tpls
-//= require lodash
-//= require underscore
+//= require lodash/dist/lodash.compat
+//= require restangular/dist/restangular
+//= require underscore/underscore
 //= require_tree .
