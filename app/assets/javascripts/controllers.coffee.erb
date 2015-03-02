@@ -1,9 +1,7 @@
 angular.module('myApp.controllers', [])
 
-.controller "ModalInstanceCtrl", ($scope, $modalInstance, org) ->
-  $scope.org = org
-  $scope.cancel = ->
-    $modalInstance.dismiss "cancel"
+
+
 
 .controller 'myCtrl', [
   '$scope'
@@ -95,4 +93,16 @@ angular.module('myApp.controllers', [])
 
 ]
 
+.controller 'ModalInstanceCtrl', [
+  '$scope'
+  '$modalInstance'
+  'org'
+
+
+  ($scope, $modalInstance, org) ->
+
+    $scope.org = org
+    $scope.cancel = ->
+      $modalInstance.dismiss "cancel"
+]
 
