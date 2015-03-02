@@ -19,6 +19,7 @@ angular.module('myApp.controllers', [])
 
   ($scope, $http, $modal, $log, CommunityService, TeamService, ZoneService) ->
 
+    console.log "<%= asset_path 'orginization.html'%>"
     $scope.open = (org) ->
       $scope.org = org
       modalInstance = $modal.open(
