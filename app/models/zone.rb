@@ -22,11 +22,11 @@ class Zone < ActiveRecord::Base
       {'1200' => 'Gardnersville'},
       {'1300' => 'New Georgia'},
       {'1400' => 'Barnesville'},
+      {'1500' => 'Common-wealth'},
       {'1600' => 'Caldwell'},
       {'1700' => 'St. Paul'},
-      {'1800' => 'Common Wealth'},
-      {'1900' => 'Careyburg'},
-      {'2000' => 'Todee'}
+      {'1800' => 'Todee'},
+      {'1900' => 'Careysburg'},
     ]
 
   end
