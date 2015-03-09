@@ -14,6 +14,7 @@ class Team < ActiveRecord::Base
   end
 
   def people_positions
+
     #self.people.all.map{|p| {person_id: p.id, positions: p.positions.map(&:name).join(',')}}
     #self.people.all.map{|p| {p.id => p.positions.map(&:name).join(',')}}
     self.people.all.map.inject({}){|h, p| h[p.id] = p.positions.map(&:name).join(','); h}
