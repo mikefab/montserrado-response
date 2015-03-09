@@ -9,8 +9,7 @@ class Team < ActiveRecord::Base
 
 
   def ordered_people
-	  #self.people.all.order(is_supervisor: :desc)
-    self.people.all
+	  self.people.all.order(last_name: :desc)
   end
 
   def people_positions
