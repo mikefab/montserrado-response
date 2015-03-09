@@ -4,8 +4,11 @@
   %b Name:
   = @team.name
 %p
-  %b Org:
-  = @team.org.name
+  %b Supporting Partners:
+  %ul
+  - @team.orgs.each do |o|
+    %li
+      = o.name
 
 %p
   %b Zones:

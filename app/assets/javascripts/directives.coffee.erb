@@ -1,8 +1,15 @@
 angular.module('myApp.directives', [])
 
+  .directive 'people', () ->
+    restrict: 'E'
+    templateUrl: "<%= asset_path 'personnel.html' %>";
+    scope:
+      people: '=',
+
+
   .directive 'map', () ->
     restrict: 'E'
-    templateUrl: "<%= asset_path 'map.html' %>";
+    templateUrl: "<%= asset_path 'map.html' %>"
     link: ($scope, $el, $attrs) ->
       changeable = 1
       $el[0].addEventListener "mousemove", ((e) ->

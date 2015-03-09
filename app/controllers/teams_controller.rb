@@ -5,7 +5,7 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all.sort_by{|t| [t.org.name, t.name]}
+    @teams = Team.all #.sort_by{|t| [t.org.name, t.name]}
   end
 
   # GET /teams/1
@@ -71,6 +71,6 @@ class TeamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
-      params.require(:team).permit(:name, :org_id, zone_ids: [], task_ids: [])
+      params.require(:team).permit(:name, :org_id, zone_ids: [], task_ids: [], org_ids: [])
     end
 end

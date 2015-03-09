@@ -24,18 +24,42 @@
     .col-md-8
       %br
       .row
-        .col-md-4
+        .col-md-6
           %form
-            .field{'ng-repeat' => '(task, enabled) in tasks', 'ng-cloak' => ''}
-              %input{"ng-model" => "tasks[task]", :type => "checkbox", 'ng-click' => 'reset_zone()'}/
-              {{task}}
-        .col-md-4
-          %strong
-            %p
-              Mouse over an EPI zone to see the teams performing the checked tasks.    
+            / .field{'ng-repeat' => '(task, enabled) in paired_tasks', 'ng-cloak' => ''}
+            /   .row
+            /     .col-md-6
+            /       %input{"ng-model" => "tasks[task]", :type => 'checkbox', 'ng-click' => 'reset_zone()'}/
+            /       {{task}}
+
+
+            .field{'ng-repeat' => 'task in paired_tasks', 'ng-cloak' => ''}
+              .row
+                .col-md-6
+                  %input{'ng-model' => "tasks[task['items'][0][0]]", :type => 'checkbox', 'ng-click' => 'reset_zone()'}/
+                  {{task['items'][0][0]}}
+
+                .col-md-6
+                  %input{'ng-model' => "tasks[task['items'][1][0]]", :type => 'checkbox', 'ng-click' => 'reset_zone()'}/
+                  {{task['items'][1][0]}}
+
+
+        .col-md-6
+          %input{'ng-model' => 'show_communities' , :type => 'checkbox',}
+            Communities
+          %br
+            %input{'ng-model' => 'show_supporting_partners' , :type => 'checkbox',}
+              Supporting partners
+
+
+      %br
+      %br
       %br
 
-
+      .span{'ng-show' => '!zone'}
+        %strong
+          %p
+            Mouse over an EPI zone to see the teams performing the checked tasks.
       .span{'ng-show' => '!!zone', 'ng-cloak' => ''}
         .row{style: 'min-height: 300px;'} 
           .col-md-12.pre-scrollable{style: 'max-width:900px;'}
@@ -55,38 +79,33 @@
               %ul{'ng-repeat' => 'team in active_teams', style: 'font-size:8pt;'}
                 %li
                   .row
-                    .col-md-4
+                    .col-md-6
                       %strong
                         {{team.name}}
-                    .col-md-4
-                      %a{'ng-click' => "open(team.org)", href: '#'}
-                        {{team.org.name}}
-                    .col-md-4
+                    / .col-md-4
+                    /   %a{'ng-click' => "open(team.org)", href: '#'}
+                    /     {{team.org.name}}
+                    .col-md-6
                       %ul{'ng-repeat' => 'task in team.tasks'}
                         %li
                           &middot; 
                           {{task.name}}
 
-                  .row{'ng-repeat' => 'person in team.ordered_people'}
-                    .col-md-2
-                      {{person.first_name}} {{person.middle_name}} {{person.last_name}}
-                    .col-md-2
-                      {{people_position[person.id]}}
+                  %people{people: 'team.ordered_people'}
 
-                    / .col-md-1
-                    /   %div{'ng-show' => 'person.is_supervisor == true'}
-                    /     *
-                    - if is_admin?
-                      .col-md-2 
-                        {{person.phone}}
-                      .col-md-2
-                        {{person.email}}
-                      .col-md-4
-                        {{person.notes}}
+                  %span{'ng-show' => '!!show_supporting_partners'}
+                    Supporting partners
+                    %ul{'ng-repeat' => 'partner in team.supporting_partners'} 
+                      %li
+                        %a{'ng-click' => "open(partner.org)", href: '#'}
+                          {{partner.org.name}}
+                        %people{people: 'partner.people'}
+
+
                 %hr                           
 
 
         .row
           .col-md-12
-            %span{'ng-repeat' => 'community in communities[zone]'}
-              {{community}}
+            %span{'ng-repeat' => 'community in communities[zone]', 'ng-show' => '!!show_communities'}
+              &middot; {{community}}

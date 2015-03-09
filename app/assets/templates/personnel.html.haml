@@ -1,0 +1,13 @@
+
+.row{'ng-repeat' => 'person in people'}
+  .col-md-2
+    {{person.first_name}} {{person.middle_name}} {{person.last_name}}
+  .col-md-2
+    {{people_position[person.id]}}
+
+  .col-md-2 
+    {{person.phone}}
+  .col-md-2
+    {{person.email}}
+  .col-md-4
+    {{person.notes}}

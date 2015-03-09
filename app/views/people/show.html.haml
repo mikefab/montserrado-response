@@ -20,6 +20,13 @@
   = @person.phone
 
 %p
+  %b orgs:
+  %ul
+    - @person.orgs.each do |o|
+      %li
+        = o.name
+
+%p
   %b Position:
   = @person.positions.map(&:name).join(', ')
 

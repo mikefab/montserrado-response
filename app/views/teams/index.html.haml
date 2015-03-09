@@ -4,7 +4,7 @@
   %thead
     %tr
       %th Name
-      %th Org
+      %th Supporting.partners
       %th
       %th
       %th
@@ -13,7 +13,7 @@
     - @teams.each do |team|
       %tr
         %td= team.name
-        %td= team.org.name
+        %td= team.supporting_partners.map{|o| o[:name]}.join(' | ')
         %td= link_to 'Show', team
         %td= link_to 'Edit', edit_team_path(team)
         %td= link_to 'Destroy', team, :method => :delete, :data => { :confirm => 'Are you sure?' }

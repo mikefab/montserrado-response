@@ -52,8 +52,19 @@ angular.module('myApp.controllers', [])
             _.each t['people_positions'], (v, k) ->
               $scope.people_position[k] = v
 
+
+        # Depends on whether user is logged if they see contact person contact info
+        _.each teams, (t) ->
+          if t.supporting_partners_no_contact
+            t.supporting_partners = t.supporting_partners_no_contact
+
+          if t.ordered_people_no_contact
+            t.ordered_people = t.ordered_people_no_contact
+
+
         $scope.teams = teams
         $scope.tasks = get_tasks teams
+        $scope.paired_tasks = groupby(2, $scope.tasks)
         $scope.get_communities()
 
 
@@ -100,3 +111,20 @@ angular.module('myApp.controllers', [])
       $modalInstance.dismiss "cancel"
 ]
 
+
+groupby  = (num, items) ->
+  group  = undefined
+  item   = undefined
+  groups = []
+  i      = 0
+  items = _.pairs items
+
+  while i < items.length
+    item = items[i]
+
+    if i % num is 0
+      group = items: []
+      groups.push group
+    group.items.push item
+    i++
+  groups

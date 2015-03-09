@@ -10,7 +10,7 @@
     = f.text_field :name
 
   .field
-    = f.select :org_id, Org.all.collect {|x| [x.name, x.id]}, {}, :multiple => false
+    = f.select :org_ids, Org.all.collect {|x| [x.name, x.id]}, {label: 'Supporting partners'},     :multiple => true
 
 
   .field

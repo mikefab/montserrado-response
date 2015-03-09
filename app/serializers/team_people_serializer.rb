@@ -1,3 +1,3 @@
 class TeamPeopleSerializer < ActiveModel::Serializer
-  attributes :name, :org, :tasks, :epi_codes, :ordered_people, :zone_ids, :people_positions
+  attributes :name, :org, :tasks, :epi_codes, :ordered_people, :zone_ids, :people_positions, :supporting_partners
 end

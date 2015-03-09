@@ -30,9 +30,14 @@
   .field
     = f.select :position_ids, Position.all.collect {|x| [x.name, x.id]}, {label: 'Positions'}, :multiple => true
 
+  .field
+    = f.select :org_ids, Org.all.collect {|x| [x.name, x.id]}, {label: 'Orgs'},     :multiple => true
 
   .field
-    = f.select :team_ids, Team.all.collect {|x| [x.org.nick + ': '+ x.name, x.id]}, {label: 'Teams'}, :multiple => true
+    = f.select :team_ids, Team.all.collect {|x| [x.name, x.id]}, {label: 'Teams'}, :multiple => true
+
+  / .field
+  /   = f.select :team_ids, Team.all.collect {|x| [x.org.nick + ': '+ x.name, x.id]}, {label: 'Teams'}, :multiple => true
 
   .field
     = f.text_area :notes

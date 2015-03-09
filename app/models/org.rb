@@ -3,6 +3,8 @@ class Org < ActiveRecord::Base
   validates_presence_of :nick
   validates :nick, :uniqueness => true
   validates :name, :uniqueness => true
+  has_and_belongs_to_many :teams,   :join_table => "orgs_teams"
+  has_and_belongs_to_many :people,  :join_table => "orgs_people"
 
   def self.db_seed
     [

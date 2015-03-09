@@ -5,7 +5,7 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all.sort_by{|f| [f.org_name, f.last_name]}
+    @people = Person.all #.sort_by{|f| [f.org_name, f.last_name]}
   end
 
   # GET /people/1
@@ -70,6 +70,6 @@ class PeopleController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
-      params.require(:person).permit(:first_name, :middle_name, :last_name, :email, :phone, :is_supervisor, :notes, team_ids: [], position_ids: [])
+      params.require(:person).permit(:first_name, :middle_name, :last_name, :email, :phone, :is_supervisor, :notes, team_ids: [], position_ids: [], org_ids: [])
     end
 end

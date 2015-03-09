@@ -39,3 +39,6 @@ bundle exec rails g model User first_name:string middle_name:string last_name:st
 bundle exec rails g scaffold Position name:string description:text
 bundle exec rails g model PeoplePositions person_id:integer position_id:integer ---no-timestamps --no-id
 bundle exec rails g scaffold County name:string zone_id:integer description:text notes:text
+bundle exec rails g model OrgsTeams org_id:integer team_id:integer ---no-timestamps --no-id
+bundle exec rails g model OrgsPeople org_id:integer person_id:integer ---no-timestamps --no-id
+
