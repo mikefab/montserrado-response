@@ -5,7 +5,7 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all #.sort_by{|f| [f.org_name, f.last_name]}
+    @people = Person.all.sort_by{|f| f.last_name}
   end
 
   # GET /people/1
