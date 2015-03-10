@@ -26,12 +26,6 @@
       .row
         .col-md-6
           %form
-            / .field{'ng-repeat' => '(task, enabled) in paired_tasks', 'ng-cloak' => ''}
-            /   .row
-            /     .col-md-6
-            /       %input{"ng-model" => "tasks[task]", :type => 'checkbox', 'ng-click' => 'reset_zone()'}/
-            /       {{task}}
-
 
             .field{'ng-repeat' => 'task in paired_tasks', 'ng-cloak' => ''}
               .row
@@ -61,7 +55,7 @@
           %p
             Mouse over an EPI zone to see the teams performing the checked tasks.
       .span{'ng-show' => '!!zone', 'ng-cloak' => ''}
-        .row{style: 'min-height: 300px;'} 
+        .row{style: 'min-height: 300px;max-height: 300px;'} 
           .col-md-12.pre-scrollable{style: 'max-width:900px;'}
             .row
               .col-md-2
@@ -82,9 +76,7 @@
                     .col-md-6
                       %strong
                         {{team.name}}
-                    / .col-md-4
-                    /   %a{'ng-click' => "open(team.org)", href: '#'}
-                    /     {{team.org.name}}
+
                     .col-md-6
                       %ul{'ng-repeat' => 'task in team.tasks'}
                         %li
