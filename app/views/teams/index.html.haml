@@ -1,10 +1,10 @@
 %h1 Listing teams
 
-%table.table
+%table.table.sort{id: 'sort'}
   %thead
     %tr
       %th Name
-      %th Supporting.partners
+      %th Supporting partners
       %th
       %th
       %th
@@ -13,11 +13,12 @@
     - @teams.each do |team|
       %tr
         %td= team.name
-        %td= team.supporting_partners.map{|o| o[:name]}.join(' | ')
+        %td= team.supporting_partners.map{|o| o[:org][:name]}.join(' | ')
         %td= link_to 'Show', team
         %td= link_to 'Edit', edit_team_path(team)
         %td= link_to 'Destroy', team, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
-
+:javascript
+  new Tablesort(document.getElementById('sort'));
 = link_to 'New Team', new_team_path
