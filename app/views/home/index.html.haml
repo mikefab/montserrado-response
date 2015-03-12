@@ -85,7 +85,7 @@
 
                   %people{people: 'team.ordered_people', position: 'people_position'}
 
-                  %span{'ng-show' => '!!show_supporting_partners'}
+                  %span{'ng-show' => '!!show_supporting_partners && !!team.supporting_partners.length > 0'}
                     Supporting partners
                     %ul{'ng-repeat' => 'partner in team.supporting_partners'} 
                       %li
