@@ -5,7 +5,7 @@
   .col-md-2
     {{position[person.id]}}
 
-  .col-md-2{'ng-show' => "!!person.phone.match('nil')"} 
+  .col-md-2{'ng-show' => "!person.phone.match('nil')"} 
     {{person.phone}}
   .col-md-2
     {{person.email}}

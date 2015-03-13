@@ -52,7 +52,6 @@ angular.module('myApp.controllers', [])
             _.each t['people_positions'], (v, k) ->
               $scope.people_position[k] = v
 
-        $scope.xxx = $scope.people_position
         # Depends on whether user is logged if they see contact person contact info
         _.each teams, (t) ->
           if t.supporting_partners_no_contact
