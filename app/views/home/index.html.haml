@@ -7,6 +7,8 @@
           %map
 
         .col-md-12
+          %br
+
           - if is_admin?
 
             = link_to 'Orgs',   orgs_path
@@ -20,13 +22,23 @@
             / = link_to 'Zones',  zones_path
             / |
             = link_to 'Positions',  positions_path
+            |
+            = link_to 'Facilities',  positions_path
+          %br
+          %br
+          %p
+            %input{'ng-model' => 'show_communities' , :type => 'checkbox',}
+              Communities
+            %input{'ng-model' => 'show_supporting_partners' , :type => 'checkbox',}
+              Supporting partners
+
 
     .col-md-8
-      %br
-      .row
-        .col-md-6
-          %form
 
+      %tabset
+        %tab{:heading => "Response Teams"}
+          %br
+          %form
             .field{'ng-repeat' => 'task in paired_tasks', 'ng-cloak' => ''}
               .row
                 .col-md-6
@@ -37,67 +49,78 @@
                   %input{'ng-model' => "tasks[task['items'][1][0]]", :type => 'checkbox', 'ng-click' => 'reset_zone()'}/
                   {{task['items'][1][0]}}
 
-
-        .col-md-6
-          %input{'ng-model' => 'show_communities' , :type => 'checkbox',}
-            Communities
           %br
-            %input{'ng-model' => 'show_supporting_partners' , :type => 'checkbox',}
-              Supporting partners
-
-
-      %br
-      %br
-      %br
-
-      .span{'ng-show' => '!zone'}
-        %strong
-          %p
-            Mouse over an EPI zone to see the teams performing the checked tasks.
-      .span{'ng-show' => '!!zone', 'ng-cloak' => ''}
-        .row
-          .col-md-12.pre-scrollable{ style: 'max-height: 300px; min-height:300px;'}
-            .row
-              .col-md-2
-                Zone: {{zone}}
-              .col-md-10
-                Area: {{zone_names[zone]}}
-
-            %div{'ng-show' => 'active_teams.length == 0' }
-              %br
-              %br
+          .span{'ng-show' => '!zone'}
+            %strong
               %p
-                There are no teams for this zone. Please add them #{link_to 'here', teams_path}.
-            %p
+                Mouse over an EPI zone to see the teams performing the checked tasks.
+          .span{'ng-show' => '!!zone', 'ng-cloak' => ''}
+            .row
+              .col-md-12.pre-scrollable{ style: 'max-height: 300px; min-height:300px;'}
+                .row
+                  .col-md-2
+                    Zone: {{zone}}
+                  .col-md-10
+                    Area: {{zone_names[zone]}}
 
-              %ul{'ng-repeat' => 'team in active_teams', style: 'font-size:8pt;'}
-                %li
-                  .row
-                    .col-md-6
-                      %strong
-                        {{team.name}}
+                %div{'ng-show' => 'active_teams.length == 0' }
+                  %br
+                  %br
+                  %p
+                    There are no teams for this zone. Please add them #{link_to 'here', teams_path}.
+                %p
 
-                    .col-md-6
-                      %ul{'ng-repeat' => 'task in team.tasks'}
-                        %li
-                          &middot; 
-                          {{task.name}}
+                  %ul{'ng-repeat' => 'team in active_teams', style: 'font-size:8pt;'}
+                    %li
+                      .row
+                        .col-md-6
+                          %strong
+                            {{team.name}}
 
-                  %people{people: 'team.ordered_people', position: 'people_position'}
+                        .col-md-6
+                          %ul{'ng-repeat' => 'task in team.tasks'}
+                            %li
+                              &middot; 
+                              {{task.name}}
 
-                  %span{'ng-show' => '!!show_supporting_partners && !!team.supporting_partners.length > 0'}
-                    Supporting partners
-                    %ul{'ng-repeat' => 'partner in team.supporting_partners'} 
-                      %li
-                        %a{'ng-click' => "open(partner.org)", href: '#'}
-                          {{partner.org.name}}
-                        %people{people: 'partner.people', position: 'people_position'}
+                      %people{people: 'team.ordered_people', position: 'people_position'}
+
+                      %span{'ng-show' => '!!show_supporting_partners && !!team.supporting_partners.length > 0'}
+                        Supporting partners:
+                        .row{'ng-repeat' => 'partner in team.supporting_partners'} 
+                          .col-md-12
+                            %a{'ng-click' => "open(partner.org)", href: '#'}
+                              {{partner.org.name}}
+                            %div{style: 'position:relative;left:20px;'} 
+                              %people{people: 'partner.people', position: 'people_position'}
 
 
-                %hr                           
+                    %hr
 
-        %br
-        .row
-          .col-md-12
-            %span{'ng-repeat' => 'community in communities[zone]', 'ng-show' => '!!show_communities'}
-              &middot; {{community}}
+
+
+        %tab{ :heading => "Medical Facilities"}
+          %br
+          .row
+            .col-md-2
+              Zone: {{zone}}
+            .col-md-10
+              Area: {{zone_names[zone]}}
+          %br
+          %br
+          .row
+            .col-md-12.pre-scrollable{ style: 'max-height: 300px; min-height:300px;'}
+              .row{'ng-repeat' => 'facility in active_facilities', style: 'font-size:10pt;'}
+                .col-md-3
+                  {{facility.name}}
+                .col-md-3
+                  {{facility.location}}
+                .col-md-3
+                  {{facility.contact_numbers}}
+
+
+      %br
+      .row
+        .col-md-12
+          %span{'ng-repeat' => 'community in communities[zone]', 'ng-show' => '!!show_communities'}
+            &middot; {{community}}

@@ -9,11 +9,12 @@ angular.module('myApp.controllers', [])
   '$modal'
   '$log'
   'CommunityService'
+  'FacilityService'
   'TeamService'
   'ZoneService'
 
 
-  ($scope, $http, $modal, $log, CommunityService, TeamService, ZoneService) ->
+  ($scope, $http, $modal, $log, CommunityService, FacilityService, TeamService, ZoneService) ->
 
     $scope.open = (org) ->
       $scope.org = org
@@ -33,17 +34,17 @@ angular.module('myApp.controllers', [])
         $scope.zone_ids[e['id']]         = e['cnam']
     ).then () ->
       $scope.get_teams()
+      $scope.get_facilities()
 
     $scope.get_communities = () ->
-      h = {}
       CommunityService.getList().then (communities) ->
-        _.each communities, (c) ->
-          unless h[c['zone_code']]
-            h[c['zone_code']] = []
-            h[c['zone_code']].push c['name']
-          else
-            h[c['zone_code']].push c['name']
-        $scope.communities = h
+        $scope.communities = zone_entity_hash(communities)
+
+
+    $scope.get_facilities = () ->
+      FacilityService.getList().then (facilities) ->
+        $scope.facilities = facilities
+
     $scope.get_teams = () ->
       $scope.people_position = {}
       TeamService.getList().then (teams) ->
@@ -74,6 +75,12 @@ angular.module('myApp.controllers', [])
       if !!zone
         if zone != $scope.zone
           $scope.zone = zone
+          $scope.active_facilities = []
+          _.each $scope.facilities, (facility) ->
+            if facility.zone_code == zone
+              $scope.active_facilities.push facility
+
+
           $scope.active_teams = []
           _.each _.keys($scope.tasks), (task) ->
             if $scope.tasks[task] == true
@@ -83,6 +90,15 @@ angular.module('myApp.controllers', [])
 
               $scope.$apply()
               
+    zone_entity_hash = (ary) ->
+      h = {}
+      _.each ary, (c) ->
+        unless h[c['zone_code']]
+          h[c['zone_code']] = []
+          h[c['zone_code']].push c['name']
+        else
+          h[c['zone_code']].push c['name']
+      return h
 
     get_tasks = (teams) ->
       tasks = {}

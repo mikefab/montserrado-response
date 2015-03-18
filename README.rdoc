@@ -42,3 +42,5 @@ bundle exec rails g scaffold County name:string zone_id:integer description:text
 bundle exec rails g model OrgsTeams org_id:integer team_id:integer ---no-timestamps --no-id
 bundle exec rails g model OrgsPeople org_id:integer person_id:integer ---no-timestamps --no-id
 
+bundle exec rails g scaffold facility zone_id:integer contact_numbers:string name:string location:string contact_name:string beds:integer lat:float lon:float level:integer
+

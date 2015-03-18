@@ -5,16 +5,16 @@ class Zone < ActiveRecord::Base
 
   def self.zone_table
     [
-      {'1100A2'   => 'Rehab/Borbor Town'},
-      {'1100A1'   => 'Kemah Town/Omega'},
-      {'1100B1'   => '72nd Community'},
-      {'1100B2'   => 'Rock Hill'},
+      {'1100A2'   => 'Paynseville ELWA'},
+      {'1100A1'   => 'Paynseville Duport Road'},
+      {'1100B1'   => 'Paynseville Peace'},
+      {'1100B2'   => 'Paynseville Pipeline'},
       {'1000' => 'Congo Town'},
       {'900'  => 'Old Road'},
       {'800'  => 'Lakpazee'},
       {'700'  => 'Sinkor'},
-      {'600'  => 'Central Monrovia B'},
-      {'500'  => 'Central Monrovia A'},
+      {'600'  => 'Slipway'},
+      {'500'  => 'Soniwein'},
       {'400'  => 'West Point'},
       {'300'  => 'Clara Town'},
       {'200'  => 'Logan Town'},
@@ -24,9 +24,9 @@ class Zone < ActiveRecord::Base
       {'1400' => 'Barnesville'},
       {'1500' => 'Common-wealth'},
       {'1600' => 'Caldwell'},
-      {'1700' => 'St. Paul'},
+      {'1700' => 'Careysburg'},
       {'1800' => 'Todee'},
-      {'1900' => 'Careysburg'},
+      {'1900' => 'St. Paul'},
     ]
 
   end

@@ -8,7 +8,11 @@ class CreateCommunities < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    Community.seed_data if ActiveRecord::Base.connection.table_exists? 'communities'
-    
+
+    reversible do |dir|
+      dir.up do
+        Community.seed_data if ActiveRecord::Base.connection.table_exists? 'communities'
+      end
+    end
   end
 end

@@ -1,0 +1,37 @@
+%h1 Listing facilities
+
+%table
+  %thead
+    %tr
+      %th Zone
+      %th Contact numbers
+      %th Name
+      %th Location
+      %th Contact name
+      %th Beds
+      %th Lat
+      %th Lon
+      %th Level
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @facilities.each do |facility|
+      %tr
+        %td= facility.zone ? facility.zone.epi_code : nil
+        %td= facility.contact_numbers
+        %td= facility.name
+        %td= facility.location
+        %td= facility.contact_name
+        %td= facility.beds
+        %td= facility.lat
+        %td= facility.lon
+        %td= facility.level
+        %td= link_to 'Show', facility
+        %td= link_to 'Edit', edit_facility_path(facility)
+        %td= link_to 'Destroy', facility, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Facility', new_facility_path

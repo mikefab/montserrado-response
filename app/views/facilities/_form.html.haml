@@ -1,0 +1,37 @@
+= form_for @facility do |f|
+  - if @facility.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@facility.errors.count, "error")} prohibited this facility from being saved:"
+      %ul
+        - @facility.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :zone_id
+    = f.number_field :zone_id
+  .field
+    = f.label :contact_numbers
+    = f.text_field :contact_numbers
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :location
+    = f.text_field :location
+  .field
+    = f.label :contact_name
+    = f.text_field :contact_name
+  .field
+    = f.label :beds
+    = f.number_field :beds
+  .field
+    = f.label :lat
+    = f.text_field :lat
+  .field
+    = f.label :lon
+    = f.text_field :lon
+  .field
+    = f.label :level
+    = f.number_field :level
+  .actions
+    = f.submit 'Save'

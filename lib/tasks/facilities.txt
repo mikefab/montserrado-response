@@ -1,0 +1,126 @@
+1	500	886414542	Aano Medical Clinic	Clay  Street				
+2	1100B1	88659578	Afro Medical & Lab Clinic	72nd				
+3	1100A1	776261060	Agape Health Clinic	Duport Road				
+4	200	886216130	Al-Hallah Medical Clinic	Jamecia Road				
+5		886685356	All Grace Medical Clinic	Sherfflin High Way				
+6	1100A2	886884491	Angel's Way Clinic	Opposite VOA Road				
+7	1900	8865365643	Banjor Community Clinic	Banjor				
+8	100	886520413	Beer Factory Clinic	Duala				
+9			Blessing Maternity Clinic					
+10			Bneers Clinic					
+11	1100A1	0777202100/0886743228	Bong Community Clinic	Omega Community				
+12	1200	777812742	BRAC Lab Diagnostic Clinic	Barnesville Road				
+13	800	886567965	Breath of Life Clinic	Lakpazee				
+14	1700	886499584	Camp Sandee Ware clinic	Bensonville				
+15			Caring For All Clinic					
+16	1100A2	770223771	Cedar Medical Center	VOA Road				
+17	300	886701116	Cemenco Clinic	Cemenco Community				
+18	800		Central Matadi Clinic	Matadi				
+19	1100A1	886704704	Chrisnah Clinic	Soul Clinic Community				
+20	600	886320293	City Lab. & Medical Clinic	Benson Street				
+21	1100B1	886847566	City View Community Clinic	Jacob Town				
+22		***	COBEC Health Center					
+23	1500	770191876	Confidence Medical clinic	Bernard's Farm				
+24	1100A2	886492290	Cornelius T. Stewart Clinic	Rehab Drive Community				
+25	1100A2	886581064	D. H. Luo Community Clinic	Joe Bar				
+26	1900	886880289	Daouda Clinic	Hotel Africa Road				
+27	1200	886321866	Doetee Memorial Clinic	Chicken Soup Factory				
+28	500		Dr. Harris Assessment & Mang. Service	Randall Street				
+29	500		Dr. Nehme Clinic	Randall Street				
+30	1900	886483210	Faith Clinic	Hotel Africa Road				
+32	1900	886403735	Few Diagnosis Clinic Annex 2	Brewville				
+33	700	***	Fiamah Community Clinic	21th Street Sinkor				
+34	1100A1	770560510	Pastor Fred Davis Memorial Clinic	Duport Road				
+35	1100B1	886525880	FREDAI Medical Clinic	Police Academy				
+36	1100B1	886464169	Gate of Hope Health Center	Redlight				
+37	1900		George Medical Clinic	Hote Africa				
+38	1100B1	770981930	German Liberia Clinic	72nd Pipeline Road				
+39	1100A1	880744897	GHIAL Fundation Health Center	Omega Community				
+40	600	***	God's Will Clinic	Newport Street				
+41	600	555794178	Good Health Center	Jallah's Town				
+42	900	886141769	Grace C.A. Reeves Community Clinic	Gaye Town, Old Road				
+43		777178208	Grace D Wallace Memorial Clinic					
+44	500	886570566	Graystone Community Clinic	Clay  Street				
+45	700	886388696	Greater Love Lab. Clinic	14th Street				
+46	600	886988160	Group of 77	Newport Street				
+47	1200	77862885	Hope Medical Clinic	Supermarket				
+48	1900	886599729	IMANI House Clinic	Jah-Tondo Town				
+49		777172183	J.Y. Memorial Medical Clinic					
+50	200	886400911	Jamaica Road Medical and Lab clinic	Jamaica Road Community				
+51	1200	886444214	Jaw Community Clinic	Kesselly Blvd				
+52		***	Jayannoh's Health Center	Grace King Communtiy				
+53	700	886546111	JFK Chest Clinic	24 street				
+54	500	886524865	Joana Maternity Clinic	PHP				
+55	1100B2	886423159	Jomu Medical & Lab Clinic	Pipeline 				
+56	700	886587032	Jorkpen Town Lab.Clinic	Jorkpen Town				
+57	100	777002086	Kamah Memorial Clinic	Duala				
+58	700	886815438	Kebbeh Poly Clinic	Saye Town				
+59	1100B1	886295416	Kellen Medical Clinic Annex 1	Lower Johnsonville				
+60	1500		Kellen Medical Clinic Annex 2	Mount Barclay				
+61	100	886895378	Kelthy Medical Clinic	New Kru Town				
+62	1300	886524078	Kelvin Medical & Lab Clinic	New Georgia				
+63	1100A1	889317863	Kingdom Care & Lab clinic	Du-Port Road				
+64	1100B1	770322761	Kissi Bendu Clinic	Goba-Chop				
+65	700		KrisPat Ear Centre(LIB) LTD.	5th Street Sinkor				
+67	1400	775592618	LESH Medical Clinic Annex 1	Kebbah Road, Barnersville				
+69	1100A2	886595121	Liberty Clinic	ELWA Junction				
+70			Life Care Health Center					
+71	1100A2	886480853	Lifeline Clinic	ELWA Road				
+72	1100B1	886645196	Lofa Medical services Clinic	Jacob Town				
+73	200	886230672	Logan Town Community Clinic	Logan Town				
+74	1900	888313537	Lott Carey Mission Clinic	Lott Carey Mission				
+75	1200	77220074	LPRC Community Clinic	LPRC				
+76	1100B2	886336428	Lukambeh Medical Clinic	Parker paint				
+77	1100A1	776247065	Ma Garmai Maternity Clinic	Soul Clinic Community				
+78	1200	886776093	Ma Tuwor Community Clinic	Stephen Tolbert Estte				
+79	1100B1	886591354	Ma V Maternity Clinic	Goba_Chop				
+81	800	886552549	Marena Community Clinic	Wroto Town				
+82			Mariama Z, Brown Clinic					
+83	1100B1	886959755	Masagco Medical clinc	Opposite MVTC				
+84	1100A2	886405774	Medical Diagnosis  Clinic	GSA Road				
+85	200		JamaicaRoad Medical and Laboratory. Clinic	Jamaica Road Community				
+86	1100B1	886268640	Medicover Dr. Swaray Clinic	Jacob Town				
+87	1100A1	886945156	Miracle Center of God Clinic	Soul Clinic Community				
+88	1300	886987369	Mother & Child Clinic	New Georgia				
+89	1200	886559414	Mother Ida Community Clinic	Day Break Mouth Open				
+90		886880986	Mother's Love Clinic	Sherfflin High Way				
+91	1100B1	777014003	National Police Training Academic Clinic	Police Academy, Paynesville				
+92	1900	880541198	New Community Clinic	Berwerville 				
+93	1900	886379859	New hope Medical Clinic	Yeakpee Town				
+94		886639154	North Road Clinic	North Road				
+95	900		Old Road Community Clinic	Oldroad				
+96	1100A1	886853210	Omega Community Clinic	Omega Community				
+97	600	88666490	Pacific Medical & Lab Clinic	Broad Street				
+98	1900	88064748	Pakpe Faith Clinic	Brewerville ,G4 Road				
+99	1100A2	886816941	Panetan Community Clinic	Maude Town, Paynesville				
+100	1100A1	777135267	Patience Clinic	Red hill(Omega)				
+101	1100B1	777049948	People's Community Clinic	Jacob Town/Lower Johnsonville				
+102	1100B2	886464687	Pool Of Bethesda Medical Clinic	Morris's Farm				
+103	1100B1	886275173	Providence Clinic	Goba_Chop				
+104	1200	886621190	Refuge Palace Maternity Clinic	Chicken Soup Factory				
+105			Rev. Browne Medical Clinic					
+106	1600		Rev. Father James Lee Memorial Clinic	Caldwell				
+107	1900		Rick's Mission school clinic					
+108	1100B2		Sam Mini Clinic	Woodcamp Community				
+109	1100A2		Shirley Gremyechev	ELWA Road				
+110	100	886496434	Siamanah Lab & Medical Clinic	SKD Boulevard				
+111	1600		Sis. R.B. Materrnity Clinic	Caldwell				
+112	1700	886471146	SLEMP  Medical Clinic	Cerrysburg				
+113	1100B1	886557356	SLEMP Medical Clinic II	Paynesville				
+114	600	886957542	Snapper Hill Clinic	Robert Street				
+115	600	886558471	Solar Optical Center Clinic	Broad Street				
+116	1100A2	770298042	St. John Medical Center (Uncle Ralph)	LBS				
+117	1100B1	777006123	St. Paul Evangelical Lutheran Clinic	Red Light				
+118	1900	886810799	ST. Peter Clinic	Brewville				
+119	1200	886674602	Stanko Maternity  Clinic	Chicken Soup Factory				
+121	100	886843253	Third Rock Chines Clinic	Cong Town				
+122	1100B2	777537433	Tony's Medical Clinic	Pipeline 				
+123	300	776139403	Trinity Maternity Center	Free Port Community				
+124	100	880872637	Tropical Clinic	Duala				
+125	700	886855005	Tropical Clinic II	Fiamah				
+126	1100A1	88674438	United Penecostal Health Center	Soul Clinic Community				
+127	300	777388264	Unity Clinic	Cow Factory				
+128	1100B1	886541913	VicMah Maternity Clinic	Jacob Town				
+129	1100A2	886533919	Vission For The Hopeless Clinic	Thinkers Village				
+130	1500		Wein Town Community Clinic	Bernard's Farm				
+131	500	886443224	Yaweh Medical Clinic	Rally Town Market				
