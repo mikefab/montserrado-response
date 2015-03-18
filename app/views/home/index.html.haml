@@ -27,8 +27,6 @@
           %br
           %br
           %p
-            %input{'ng-model' => 'show_communities' , :type => 'checkbox',}
-              Communities
             %input{'ng-model' => 'show_supporting_partners' , :type => 'checkbox',}
               Supporting partners
 
@@ -118,9 +116,9 @@
                 .col-md-3
                   {{facility.contact_numbers}}
 
-
-      %br
-      .row
-        .col-md-12
-          %span{'ng-repeat' => 'community in communities[zone]', 'ng-show' => '!!show_communities'}
-            &middot; {{community}}
+        %tab{ :heading => "Communities"}
+          %br
+          .row
+            .col-md-12
+              %span{'ng-repeat' => 'community in communities[zone]'}
+                &middot; {{community}}
