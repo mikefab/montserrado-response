@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+gem 'rails_admin'
+gem 'cancancan', '~> 1.10'
 gem 'angular-ui-bootstrap-rails'
 gem 'bootstrap-sass', '~> 3.3.3'
 

@@ -3,7 +3,7 @@ module ApplicationHelper
   def is_admin?
     #return true
     if current_user
-      return current_user.is_admin
+      return current_user.role == 'admin'
     else
       return false
     end

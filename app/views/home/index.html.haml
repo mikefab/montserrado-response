@@ -8,24 +8,6 @@
 
         .col-md-12
           %br
-
-          - if is_admin?
-
-            = link_to 'Orgs',   orgs_path
-            |      
-            = link_to 'Teams',  teams_path
-            |
-            = link_to 'People', people_path
-            |
-            = link_to 'Tasks',  tasks_path
-            |
-            / = link_to 'Zones',  zones_path
-            / |
-            = link_to 'Positions',  positions_path
-            |
-            = link_to 'Facilities',  positions_path
-          %br
-          %br
           %p
             %input{'ng-model' => 'show_supporting_partners' , :type => 'checkbox',}
               Supporting partners

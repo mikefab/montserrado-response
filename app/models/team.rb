@@ -8,6 +8,18 @@ class Team < ActiveRecord::Base
   # validates_presence_of :org
 
 
+  def self.teams_people
+    ActiveModel::ArraySerializer
+      .new(Team.all, each_serializer: TeamPeopleSerializer)
+  end
+
+
+  def self.teams_people_no_contact
+    ActiveModel::ArraySerializer
+      .new(Team.all, each_serializer: TeamPeopleNoContactSerializer)
+  end
+
+
   def ordered_people
 	  self.people.all.order(last_name: :asc)
   end

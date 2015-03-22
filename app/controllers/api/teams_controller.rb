@@ -9,18 +9,16 @@ class Api::TeamsController < ApplicationController
     #            .new(Team.all.select{|t| t.epi_codes.include?(params['epi_code'])}, each_serializer: TeamSerializer)
 
     if current_user
-      serialized_teams =
-        ActiveModel::ArraySerializer
-                 .new(Team.all, each_serializer: TeamPeopleSerializer)
-
-      render json: serialized_teams
+      if can_view?
+        serialized_teams = Team.teams_people
+      else
+        serialized_teams = Team.teams_people_no_contact
+      end
     else
-      serialized_teams =
-        ActiveModel::ArraySerializer
-                 .new(Team.all, each_serializer: TeamPeopleNoContactSerializer)
-
-      render json: serialized_teams
-
+      serialized_teams = Team.teams_people_no_contact
     end
+      
+    render json: serialized_teams
+
   end
 end
