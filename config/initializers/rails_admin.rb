@@ -35,6 +35,54 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+  config.model 'Facility' do
+    edit do
+      field :contact_numbers,  :string
+      field :name,             :string
+      field :contact_name,     :string
+      field :beds,             :integer
+      field :lat,              :float
+      field :lon,              :float
+      field :level do
+        partial 'facility_levels'
+      end
+    end
+
+    fields do
+      help false
+    end
+  end
+
+  config.model 'Person' do
+    fields do
+      help false
+    end
+  end
+
+  config.model 'Team' do
+    fields do
+      help false
+    end
+  end
+
+  config.model 'Task' do
+    fields do
+      help false
+    end
+  end
+
+  config.model 'Position' do
+    fields do
+      help false
+    end
+  end
+
+  config.model 'Org' do
+    fields do
+      help false
+    end
+  end
+
 
   config.model 'User' do
     list do
@@ -56,6 +104,8 @@ RailsAdmin.config do |config|
         partial 'roles_partial'
       end
     end
+    fields do
+      help false
+    end
   end
-
 end
