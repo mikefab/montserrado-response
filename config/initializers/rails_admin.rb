@@ -35,6 +35,7 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
   config.model 'Facility' do
     edit do
       field :contact_numbers,  :string
@@ -46,10 +47,9 @@ RailsAdmin.config do |config|
       field :level do
         partial 'facility_levels'
       end
-    end
-
-    fields do
-      help false
+      fields do
+        help false
+      end
     end
   end
 
