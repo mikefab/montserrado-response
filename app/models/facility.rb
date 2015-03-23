@@ -1,6 +1,9 @@
 class Facility < ActiveRecord::Base
   belongs_to :zone
 
+  LEVELS = ['Health Center', 'Hospital', 'PHC-1', 'PHC-2']
+
+
   def self.seed_data
     load File.join(Rails.root, 'Rakefile')
     Rake::Task['import_facilities'].invoke

@@ -1,0 +1,1 @@
+<%= form.collection_select(:level, Facility::LEVELS, :to_s, lambda{|i| i.to_s.humanize}) %>
