@@ -87,11 +87,11 @@ RailsAdmin.config do |config|
   config.model 'User' do
     list do
       field :first_name
-      field :middle_name
       field :last_name
-      field :phone
-      field :email
       field :role
+      field :sign_in_count
+      field :current_sign_in_at
+      field :last_sign_in_at
     end
 
     edit do
