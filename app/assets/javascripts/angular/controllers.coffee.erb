@@ -1,0 +1,145 @@
+angular.module('myApp.controllers', [])
+
+
+
+
+.controller 'myCtrl', [
+  '$scope'
+  '$http'
+  '$modal'
+  '$log'
+  'CommunityService'
+  'FacilityService'
+  'TeamService'
+  'ZoneService'
+
+
+  ($scope, $http, $modal, $log, CommunityService, FacilityService, TeamService, ZoneService) ->
+
+    $scope.open = (org) ->
+      $scope.org = org
+      modalInstance = $modal.open(
+        templateUrl: "<%= asset_path 'org.html'%>" # "<%= asset_path 'orginization.html' %>"
+        controller: 'ModalInstanceCtrl'
+        size: 'md'
+        resolve: org: ->
+          $scope.org
+      )
+
+    $scope.zone_names = {}
+    $scope.zone_ids   = {}
+    $http.get('/api/zones').success((data, status, headers, config) ->
+      _.each data, (e) ->
+        $scope.zone_names[e['epi_code']] = e['cnam']
+        $scope.zone_ids[e['id']]         = e['cnam']
+    ).then () ->
+      $scope.get_teams()
+      $scope.get_facilities()
+
+    $scope.get_communities = () ->
+      CommunityService.getList().then (communities) ->
+        $scope.communities = zone_entity_hash(communities)
+
+
+    $scope.get_facilities = () ->
+      FacilityService.getList().then (facilities) ->
+        $scope.facilities = facilities
+
+    $scope.get_teams = () ->
+      $scope.people_position = {}
+      TeamService.getList().then (teams) ->
+        if teams.length > 0
+          _.each teams, (t) ->
+            _.each t['people_positions'], (v, k) ->
+              $scope.people_position[k] = v
+
+        # Depends on whether user is logged if they see contact person contact info
+        _.each teams, (t) ->
+          if t.supporting_partners_no_contact
+            t.supporting_partners = t.supporting_partners_no_contact
+
+          if t.ordered_people_no_contact
+            t.ordered_people = t.ordered_people_no_contact
+
+
+        $scope.teams = teams
+        $scope.tasks = get_tasks teams
+        $scope.paired_tasks = groupby(2, $scope.tasks)
+        $scope.get_communities()
+
+
+    $scope.reset_zone = () ->
+      $scope.zone = null
+
+    $scope.show_teams = (zone) ->
+      if !!zone
+        if zone != $scope.zone
+          $scope.zone = zone
+          $scope.active_facilities = []
+          _.each $scope.facilities, (facility) ->
+            if facility.zone_code == zone
+              $scope.active_facilities.push facility
+
+
+          $scope.active_teams = []
+          _.each _.keys($scope.tasks), (task) ->
+            if $scope.tasks[task] == true
+              _.each $scope.teams, (team) ->
+                if _.contains((_.map team.tasks, _.iteratee("name")), task)  && _.contains(team.epi_codes, zone)
+                  $scope.active_teams.push team unless  _.contains($scope.active_teams, team)
+
+              $scope.$apply()
+              
+    zone_entity_hash = (ary) ->
+      h = {}
+      _.each ary, (c) ->
+        unless h[c['zone_code']]
+          h[c['zone_code']] = []
+          h[c['zone_code']].push c['name']
+        else
+          h[c['zone_code']].push c['name']
+      return h
+
+    get_tasks = (teams) ->
+      tasks = {}
+      _.each teams, (team) ->
+        _.each team.tasks, (task) ->
+          tasks[task.name] = true
+
+      return tasks
+
+
+    
+
+]
+
+.controller 'ModalInstanceCtrl', [
+  '$scope'
+  '$modalInstance'
+  'org'
+
+
+  ($scope, $modalInstance, org) ->
+
+    $scope.org = org
+    $scope.cancel = ->
+      $modalInstance.dismiss "cancel"
+]
+
+
+groupby  = (num, items) ->
+  group  = undefined
+  item   = undefined
+  groups = []
+  i      = 0
+  items = _.pairs items
+
+  while i < items.length
+    item = items[i]
+
+    if i % num is 0
+      group = items: []
+      groups.push group
+    group.items.push item
+    i++
+  groups

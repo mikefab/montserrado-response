@@ -1,0 +1,7 @@
+angular.module('myApp', ['myApp.controllers', 'myApp.directives', 'myApp.services', 'restangular', 'ui.bootstrap'])
+  .config [
+    'RestangularProvider'
+    (RestangularProvider) ->
+      RestangularProvider.setBaseUrl "/api"
+
+  ]
