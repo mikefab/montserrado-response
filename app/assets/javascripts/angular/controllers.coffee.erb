@@ -1,8 +1,5 @@
 angular.module('myApp.controllers', [])
 
-
-
-
 .controller 'myCtrl', [
   '$scope'
   '$http'
@@ -12,7 +9,6 @@ angular.module('myApp.controllers', [])
   'FacilityService'
   'TeamService'
   'ZoneService'
-
 
   ($scope, $http, $modal, $log, CommunityService, FacilityService, TeamService, ZoneService) ->
 
@@ -107,10 +103,6 @@ angular.module('myApp.controllers', [])
           tasks[task.name] = true
 
       return tasks
-
-
-    
-
 ]
 
 .controller 'ModalInstanceCtrl', [
