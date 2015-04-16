@@ -24,8 +24,9 @@
             - unless current_user
               = link_to 'login', new_user_session_path
             - else
-              = link_to 'admin', rails_admin_path
-              &nbsp;&nbsp;
+              - if current_user.role == 'admin'
+                = link_to 'admin', rails_admin_path
+                &nbsp;&nbsp;
               = link_to "log out", destroy_user_session_path, method: :delete
     %br
     %br
