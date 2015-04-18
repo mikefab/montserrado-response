@@ -26,5 +26,6 @@ Create user
     Use ctrl 'c' to exit the console
 
 Run the server
+
     rails s
     browse to localhost:3000
