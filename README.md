@@ -1,4 +1,4 @@
-***Montserrado Response***
+###Montserrado Response###
 
 This rails/angular application is a map of ebola response teams throughout Montserrado county in Liberia. Logged in users see contact information.
 
