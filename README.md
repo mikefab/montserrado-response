@@ -4,17 +4,20 @@ This app runs live at: http://montserrado-response.herokuapp.com.
 
 ***Install***
 
-You must install Postgres (http://postgresapp.com/) 
+You must have Postgres installed (http://postgresapp.com/) 
 
     git clone https://github.com/mikefab/montserrado-response.git
     cd montserrado-response
 
 Install gems
+
     bundle
 
 Run migrations
+
     bundle exec rake db:migrate
 
 Create user
+
     rails c
     User.create!(email: 'admin@example.com', password: 'your_own_password', role: 'admin')
