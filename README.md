@@ -1,4 +1,6 @@
-***Montserrado Response*** is a map of ebola response teams throughout Montserrado county in Liberia. Logged in users see contact information.
+***Montserrado Response***
+
+This rails/angular application is a map of ebola response teams throughout Montserrado county in Liberia. Logged in users see contact information.
 
 This app runs live at: http://montserrado-response.herokuapp.com.
 
@@ -21,3 +23,8 @@ Create user
 
     rails c
     User.create!(email: 'admin@example.com', password: 'your_own_password', role: 'admin')
+    Use ctrl 'c' to exit the console
+
+Run the server
+    rails s
+    browse to localhost:3000
