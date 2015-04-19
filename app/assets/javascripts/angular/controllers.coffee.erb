@@ -32,7 +32,6 @@ angular.module('myApp.controllers', [])
     ).then () ->
       $scope.get_teams()
       $scope.get_facilities()
-      $scope.loader.loading = false
 
     $scope.get_communities = () ->
       CommunityService.getList().then (communities) ->
@@ -46,6 +45,7 @@ angular.module('myApp.controllers', [])
     $scope.get_teams = () ->
       $scope.people_position = {}
       TeamService.getList().then (teams) ->
+        $scope.loader.loading = false        
         if teams.length > 0
           _.each teams, (t) ->
             _.each t['people_positions'], (v, k) ->
