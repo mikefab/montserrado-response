@@ -18,19 +18,24 @@
       %tabset
         %tab{:heading => "Response Teams"}
           %br
-          %form
-            .field{'ng-repeat' => 'task in paired_tasks', 'ng-cloak' => ''}
-              .row
-                .col-md-6
-                  %input{'ng-model' => "tasks[task['items'][0][0]]", :type => 'checkbox', 'ng-click' => 'reset_zone()'}/
-                  {{task['items'][0][0]}}
+          %form 
+            %div{style: 'min-height:50px'}
+              .field{'ng-repeat' => 'task in paired_tasks', 'ng-cloak' => ''}
+                .row
+                  .col-md-6
+                    %input{'ng-model' => "tasks[task['items'][0][0]]", :type => 'checkbox', 'ng-click' => 'reset_zone()'}/
+                    {{task['items'][0][0]}}
 
-                .col-md-6
-                  %input{'ng-model' => "tasks[task['items'][1][0]]", :type => 'checkbox', 'ng-click' => 'reset_zone()'}/
-                  {{task['items'][1][0]}}
+                  .col-md-6
+                    %input{'ng-model' => "tasks[task['items'][1][0]]", :type => 'checkbox', 'ng-click' => 'reset_zone()'}/
+                    {{task['items'][1][0]}}
 
           %br
-          .span{'ng-show' => '!zone'}
+
+          %div.pull-right{'ng-show' => 'loader.loading', style:'position:absolute;'}
+            =image_tag asset_path('ajax-loader.gif')
+
+          .span{'ng-show' => '!zone && !loader.loading'}
             %strong
               %p
                 Mouse over an EPI zone to see the teams performing the checked tasks.
@@ -38,9 +43,9 @@
             .row
               .col-md-12.pre-scrollable.index{style:'width:90%;max-height:300px;min-height:300px;'}
                 .row
-                  .col-md-2
+                  .col-md-2{'ng-cloak' => ''} 
                     Zone: {{zone}}
-                  .col-md-10
+                  .col-md-10{'ng-cloak' => ''}
                     Area: {{zone_names[zone]}}
 
                 %div{'ng-show' => 'active_teams.length == 0' }

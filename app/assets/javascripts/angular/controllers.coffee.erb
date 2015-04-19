@@ -11,6 +11,7 @@ angular.module('myApp.controllers', [])
   'ZoneService'
 
   ($scope, $http, $modal, $log, CommunityService, FacilityService, TeamService, ZoneService) ->
+    $scope.loader = loading: true
 
     $scope.open = (org) ->
       $scope.org = org
@@ -31,6 +32,7 @@ angular.module('myApp.controllers', [])
     ).then () ->
       $scope.get_teams()
       $scope.get_facilities()
+      $scope.loader.loading = false
 
     $scope.get_communities = () ->
       CommunityService.getList().then (communities) ->
