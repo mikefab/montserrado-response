@@ -1,19 +1,19 @@
 
 %div{'ng-controller' => 'myCtrl'}
   .row
-    .col-md-4
+    .col-xs-4
       .row
-        .col-md-12
+        .col-xs-12
           %map
 
-        .col-md-12
+        .col-xs-12
           %br
           %p
             %input{'ng-model' => 'show_supporting_partners' , :type => 'checkbox',}
               Supporting partners
 
 
-    .col-md-8
+    .col-xs-8
 
       %tabset
         %tab{:heading => "Response Teams"}
@@ -22,30 +22,34 @@
             %div{style: 'min-height:50px'}
               .field{'ng-repeat' => 'task in paired_tasks', 'ng-cloak' => ''}
                 .row
-                  .col-md-6
+                  .col-xs-6
                     %input{'ng-model' => "tasks[task['items'][0][0]]", :type => 'checkbox', 'ng-click' => 'reset_zone()'}/
                     {{task['items'][0][0]}}
 
-                  .col-md-6
+                  .col-xs-6
                     %input{'ng-model' => "tasks[task['items'][1][0]]", :type => 'checkbox', 'ng-click' => 'reset_zone()'}/
                     {{task['items'][1][0]}}
 
           %br
 
-          %div.pull-right{'ng-show' => 'loader.loading', style:'position:absolute;'}
-            =image_tag asset_path('ajax-loader.gif')
-
+          %div{'ng-show' => 'loader.loading'}
+            .row
+              .col-xs-3
+              .col-xs-2
+                =image_tag asset_path('ajax-loader.gif')
+              .col-xs-7
+  
           .span{'ng-show' => '!zone && !loader.loading'}
             %strong
               %p
                 Mouse over an EPI zone to see the teams performing the checked tasks.
           .span{'ng-show' => '!!zone', 'ng-cloak' => ''}
             .row
-              .col-md-12.pre-scrollable.index{style:'width:90%;max-height:300px;min-height:300px;'}
+              .col-xs-12.pre-scrollable.index{style:'width:90%;max-height:300px;min-height:300px;'}
                 .row
-                  .col-md-2{'ng-cloak' => ''} 
+                  .col-xs-2{'ng-cloak' => ''} 
                     Zone: {{zone}}
-                  .col-md-10{'ng-cloak' => ''}
+                  .col-xs-10{'ng-cloak' => ''}
                     Area: {{zone_names[zone]}}
 
                 %div{'ng-show' => 'active_teams.length == 0' }
@@ -58,11 +62,11 @@
                   %ul{'ng-repeat' => 'team in active_teams', style: 'font-size:8pt;'}
                     %li
                       .row
-                        .col-md-6
+                        .col-xs-6
                           %strong
                             {{team.name}}
 
-                        .col-md-6
+                        .col-xs-6
                           %ul{'ng-repeat' => 'task in team.tasks'}
                             %li
                               &middot; 
@@ -73,7 +77,7 @@
                       %span{'ng-show' => '!!show_supporting_partners && !!team.supporting_partners.length > 0'}
                         Supporting partners:
                         .row{'ng-repeat' => 'partner in team.supporting_partners'} 
-                          .col-md-12
+                          .col-xs-12
                             %a{'ng-click' => "open(partner.org)", href: '#'}
                               {{partner.org.name}}
                             %div{style: 'position:relative;left:20px;'} 
@@ -87,25 +91,25 @@
         %tab{ :heading => "Medical Facilities"}
           %br
           .row
-            .col-md-2
+            .col-xs-2
               Zone: {{zone}}
-            .col-md-10
+            .col-xs-10
               Area: {{zone_names[zone]}}
           %br
           %br
           .row
-            .col-md-12.pre-scrollable{ style: 'max-height: 300px; min-height:300px;'}
+            .col-xs-12.pre-scrollable{ style: 'max-height: 300px; min-height:300px;'}
               .row{'ng-repeat' => 'facility in active_facilities', style: 'font-size:10pt;'}
-                .col-md-3
+                .col-xs-3
                   {{facility.name}}
-                .col-md-3
+                .col-xs-3
                   {{facility.location}}
-                .col-md-3
+                .col-xs-3
                   {{facility.contact_numbers}}
 
         %tab{ :heading => "Communities"}
           %br
           .row
-            .col-md-12
+            .col-xs-12
               %span{'ng-repeat' => 'community in communities[zone]'}
                 &middot; {{community}}
