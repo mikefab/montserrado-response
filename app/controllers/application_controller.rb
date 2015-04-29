@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
 
   def can_view?
     if current_user
+      # Block view if the user does not have any of these roles
       !['admin', 'editor', 'viewer'].select{|e| e == current_user.role}.empty?
     else
       return false
@@ -16,7 +17,6 @@ class ApplicationController < ActionController::Base
   end
 
   def is_authorized?
-    Track.create(ip: request.remote_ip, params: params)
      authenticate_user!
     if current_user
       redirect_to '/' unless current_user.role == 'admin'
