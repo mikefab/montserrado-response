@@ -14,6 +14,11 @@ gem 'pry'
 gem 'active_model_serializers'
 gem 'responders', '~> 2.0'
 gem 'devise'
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+  gem "capybara"
+  gem "launchy"
+end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
