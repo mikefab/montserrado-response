@@ -5,10 +5,6 @@ require 'spec_helper'
 
 
 describe 'Users' do
-  before :each do
-  end
-
-
   it "allows admin user into rails admin" do
     user = User.create!(:email => 'a@a.com', :password => 'password!', role: 'admin')
     login(user)
